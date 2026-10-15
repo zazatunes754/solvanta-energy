@@ -9,6 +9,7 @@ import { Button } from "../components/ui/Button";
 import { ContentBlockView } from "../components/ui/ContentBlocks";
 import { CtaBand } from "../components/sections/HomeHero";
 import { useSeo } from "../hooks/useSeo";
+import { absoluteAsset } from "../lib/asset";
 
 export default function ArticlePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -28,7 +29,7 @@ export default function ArticlePage() {
           description: article.dek,
           datePublished: article.published,
           dateModified: article.updated,
-          image: `${site.url}${article.heroImage}`,
+          image: absoluteAsset(article.heroImage),
           publisher: { "@type": "Organization", name: site.brand.name, url: site.url },
           mainEntityOfPage: `${site.url}/knowledge-hub/${article.slug}`,
         }

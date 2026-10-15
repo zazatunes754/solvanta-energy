@@ -7,6 +7,7 @@ import { Badge, SectionHeading } from "../ui/primitives";
 import { Media } from "../ui/Media";
 import { ServiceIcon } from "../ui/ServiceIcon";
 import { Button } from "../ui/Button";
+import { asset } from "../../lib/asset";
 
 /** Featured service plus an index of the rest, so cards are never repetitive. */
 export function ServicesPreview() {
@@ -131,7 +132,7 @@ export function BatterySection() {
 
           <div className="split__media split__media--tall">
             <Media
-              src="/images/home-battery-wall.webp"
+              src={asset("/images/home-battery-wall.webp")}
               alt="Modular home battery units mounted on a wall beneath an inverter in a garage"
               focus="50% 35%"
             />

@@ -26,7 +26,7 @@ export const site = {
   },
 
   /** Canonical public URL of the deployed site (no trailing slash).         */
-  url: "https://www.solvanta.example",
+  url: "https://zazatunes754.github.io/solvanta-energy",
 
   /** Locale / region ------------------------------------------------------ */
   locale: "en-AU",

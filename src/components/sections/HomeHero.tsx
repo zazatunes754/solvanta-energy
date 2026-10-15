@@ -4,6 +4,7 @@ import { Button } from "../ui/Button";
 import { Media } from "../ui/Media";
 import { Marquee } from "../ui/Marquee";
 import { Reveal } from "../ui/primitives";
+import { asset } from "../../lib/asset";
 
 const marqueeItems = [
   "Rooftop solar design",
@@ -48,7 +49,7 @@ export function HomeHero() {
 
             <div className="hero__media">
               <Media
-                src="/images/rooftop-solar-home.webp"
+                src={asset("/images/rooftop-solar-home.webp")}
                 alt="Solar panel arrays covering the roofs of neighbouring suburban homes beneath a clear blue sky"
                 priority
                 focus="50% 45%"

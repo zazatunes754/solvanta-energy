@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { site } from "../config/site";
+import { absoluteAsset } from "../lib/asset";
 
 type SeoOptions = {
   /** Page title; the brand is appended automatically. */
@@ -45,7 +46,7 @@ export function useSeo({ title, description, path, image, noIndex, structuredDat
   useEffect(() => {
     const fullTitle = path === "/" ? title : `${title} | ${site.brand.name}`;
     const canonical = `${site.url}${path === "/" ? "" : path}`;
-    const socialImage = `${site.url}${image ?? "/images/social-card.jpg"}`;
+    const socialImage = absoluteAsset(image ?? "/images/social-card.jpg");
 
     document.title = fullTitle;
     setMeta('meta[name="description"]', "name", "description", description);

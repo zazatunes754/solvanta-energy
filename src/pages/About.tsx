@@ -6,6 +6,7 @@ import { Callout, Reveal, SectionHeading, TickList } from "../components/ui/prim
 import { Media } from "../components/ui/Media";
 import { CtaBand } from "../components/sections/HomeHero";
 import { useSeo } from "../hooks/useSeo";
+import { asset } from "../lib/asset";
 
 const values = [
   {
@@ -112,7 +113,7 @@ export default function About() {
             </div>
             <div className="split__media split__media--tall">
               <Media
-                src="/images/modern-home-1.webp"
+                src={asset("/images/modern-home-1.webp")}
                 alt="Angled view of the exterior of a contemporary home with deep eaves and large glazing"
                 focus="50% 40%"
               />
@@ -213,7 +214,7 @@ export default function About() {
             </div>
             <div className="split__media">
               <Media
-                src="/images/electrician-work.webp"
+                src={asset("/images/electrician-work.webp")}
                 alt="Technician working on wiring inside an open electrical control cabinet"
                 focus="50% 45%"
               />

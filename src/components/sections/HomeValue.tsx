@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLink } from "../ui/Button";
 import { Media } from "../ui/Media";
 import { SectionHeading } from "../ui/primitives";
+import { asset } from "../../lib/asset";
 
 /** Editorial value proposition: sticky editorial column plus numbered list. */
 export function Proposition() {
@@ -195,7 +196,7 @@ export function TechnologySplit() {
         <div className="split">
           <div className="split__media split__media--tall">
             <Media
-              src="/images/sunlight-window.webp"
+              src={asset("/images/sunlight-window.webp")}
               alt="Daylight passing through a window casting a grid of light and shadow across an interior wall"
             />
           </div>
@@ -240,17 +241,17 @@ export function TechnologySplit() {
 export function GalleryPreview() {
   const images = [
     {
-      src: "/images/install-crew-panels.webp",
+      src: asset("/images/install-crew-panels.webp"),
       alt: "Installer wiring a solar panel array on a metal roof with tools beside them",
       caption: "Roof work",
     },
     {
-      src: "/images/home-battery-wall.webp",
+      src: asset("/images/home-battery-wall.webp"),
       alt: "Stacked home battery modules and inverter mounted on a garage wall",
       caption: "Storage",
     },
     {
-      src: "/images/solar-panel-macro.webp",
+      src: asset("/images/solar-panel-macro.webp"),
       alt: "Macro detail of the cell grid on a solar panel surface",
       caption: "Equipment",
     },

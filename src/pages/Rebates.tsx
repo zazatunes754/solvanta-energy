@@ -11,6 +11,7 @@ import { Badge, Callout, Reveal, SectionHeading, TickList } from "../components/
 import { CtaBand } from "../components/sections/HomeHero";
 import { useSeo } from "../hooks/useSeo";
 import { Figure } from "../components/ui/Media";
+import { asset } from "../lib/asset";
 
 const LAST_REVIEWED = "15 October 2026";
 
@@ -194,7 +195,7 @@ export default function Rebates() {
 
             <div className="split__media split__media--tall">
               <Figure
-                src="/images/ev-charging-home.webp"
+                src={asset("/images/ev-charging-home.webp")}
                 alt="Charging cable plugged into the charge port of an electric vehicle"
                 caption="Electrification changes the calculation: an electric vehicle typically increases household consumption and the value of daytime generation."
                 aspect="4 / 5"

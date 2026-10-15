@@ -10,6 +10,7 @@
  */
 
 import type { ContentBlock } from "./contentTypes";
+import { asset } from "../lib/asset";
 
 export type ServiceFaq = {
   question: string;
@@ -62,7 +63,7 @@ export const services: Service[] = [
       "Homes with a high bill and a suitable north, east or west roof",
       "Owners planning to add a battery in the next one to three years",
     ],
-    image: "/images/solar-panels-roof-rows.webp",
+    image: asset("/images/solar-panels-roof-rows.webp"),
     imageAlt: "Rows of solar panels across the pitched, tiled roofs of neighbouring homes",
     icon: "sun",
     guide: [
@@ -226,7 +227,7 @@ export const services: Service[] = [
       "Anyone wanting some protection from outages",
     ],
     note: "Blackout protection depends on the battery, inverter and the way the backup circuit is wired. Not every battery configuration can run your whole home during an outage — we will tell you exactly what yours will support.",
-    image: "/images/home-battery-wall.webp",
+    image: asset("/images/home-battery-wall.webp"),
     imageAlt: "Wall-mounted home battery units and inverter installed neatly beside a switchboard",
     icon: "battery",
     guide: [
@@ -403,7 +404,7 @@ export const services: Service[] = [
       "Any system where output or monitoring has become unreliable",
     ],
     note: "Replacing an inverter resets the clock on the conversion equipment — but not on the panels, the mounting or the wiring. We will tell you plainly if a different kind of intervention is the better use of the money.",
-    image: "/images/electrician-work.webp",
+    image: asset("/images/electrician-work.webp"),
     imageAlt: "Technician working on wiring and terminals inside an open electrical control panel",
     icon: "zap",
     guide: [
@@ -551,7 +552,7 @@ export const services: Service[] = [
       "Homes planning a battery within a year of installing solar",
       "Households electrifying heating, hot water or a vehicle",
     ],
-    image: "/images/rooftop-solar-home.webp",
+    image: asset("/images/rooftop-solar-home.webp"),
     imageAlt: "Solar panels across the roofs of neighbouring suburban homes under a clear sky",
     icon: "layers",
     guide: [
@@ -664,7 +665,7 @@ export const services: Service[] = [
       "Homes that have added an EV, pool or heat pump since installing",
       "Systems with equipment nearing the end of warranty",
     ],
-    image: "/images/electrician-work.webp",
+    image: asset("/images/electrician-work.webp"),
     imageAlt: "Technician working on wiring and terminals inside an open electrical control panel",
     icon: "refresh",
     guide: [
@@ -781,7 +782,7 @@ export const services: Service[] = [
       "Systems installed ten or more years ago",
       "Anyone whose bill has risen without explanation",
     ],
-    image: "/images/electricity-meter.webp",
+    image: asset("/images/electricity-meter.webp"),
     imageAlt: "A row of electricity meters mounted on a wall, used for measuring household energy",
     icon: "search",
     guide: [
@@ -908,7 +909,7 @@ export const services: Service[] = [
       "Households on time-of-use or demand tariffs",
       "Homes adding an EV or electrifying appliances",
     ],
-    image: "/images/solar-panel-macro.webp",
+    image: asset("/images/solar-panel-macro.webp"),
     imageAlt: "Close-up detail of the cell structure across a modern solar panel",
     icon: "activity",
     guide: [
@@ -1032,7 +1033,7 @@ export const services: Service[] = [
       "Retail and hospitality sites with air-conditioning load",
       "Agricultural operations with pumping and processing loads",
     ],
-    image: "/images/solar-farm-aerial.webp",
+    image: asset("/images/solar-farm-aerial.webp"),
     imageAlt: "Aerial view of long rows of solar panels arranged across open ground",
     icon: "building",
     guide: [
@@ -1171,7 +1172,7 @@ export const services: Service[] = [
       "Properties in coastal or high-dust environments",
       "Owners who want a maintenance record for insurance or sale",
     ],
-    image: "/images/install-crew-panels.webp",
+    image: asset("/images/install-crew-panels.webp"),
     imageAlt: "Technician kneeling on a metal roof, wiring a solar panel array with tools laid out nearby",
     icon: "wrench",
     guide: [

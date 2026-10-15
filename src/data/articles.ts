@@ -13,6 +13,7 @@
  */
 
 import type { ContentBlock, ContentSource } from "./contentTypes";
+import { asset } from "../lib/asset";
 
 export type ArticleBlock = ContentBlock;
 export type ArticleSource = ContentSource;
@@ -55,7 +56,7 @@ export const articles: Article[] = [
     readingMinutes: 8,
     published: "2026-08-12",
     updated: "2026-10-15",
-    heroImage: "/images/home-battery-wall.webp",
+    heroImage: asset("/images/home-battery-wall.webp"),
     heroAlt: "Home battery modules and an inverter mounted on a wall beside a switchboard",
     blocks: [
       {
@@ -187,7 +188,7 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-09-02",
     updated: "2026-10-15",
-    heroImage: "/images/solar-panels-roof-rows.webp",
+    heroImage: asset("/images/solar-panels-roof-rows.webp"),
     heroAlt: "Solar panels covering the pitched, tiled roofs of nearby houses",
     blocks: [
       {
@@ -276,7 +277,7 @@ export const articles: Article[] = [
     readingMinutes: 9,
     published: "2026-09-20",
     updated: "2026-10-15",
-    heroImage: "/images/electricity-meter.webp",
+    heroImage: asset("/images/electricity-meter.webp"),
     heroAlt: "A row of electricity meters mounted on a wall",
     blocks: [
       {
@@ -393,7 +394,7 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-09-28",
     updated: "2026-10-15",
-    heroImage: "/images/install-crew-panels.webp",
+    heroImage: asset("/images/install-crew-panels.webp"),
     heroAlt: "Installer working on a solar panel array on a metal roof, tools and cable beside them",
     blocks: [
       {
@@ -490,7 +491,7 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-05-14",
     updated: "2026-10-15",
-    heroImage: "/images/solar-panel-macro.webp",
+    heroImage: asset("/images/solar-panel-macro.webp"),
     heroAlt: "Close-up of the cell structure on the surface of a modern solar panel",
     blocks: [
       {
@@ -606,7 +607,7 @@ export const articles: Article[] = [
     readingMinutes: 8,
     published: "2026-06-03",
     updated: "2026-10-15",
-    heroImage: "/images/modern-home-1.webp",
+    heroImage: asset("/images/modern-home-1.webp"),
     heroAlt: "A modern home with an uncluttered roof, typical of the properties where system sizing matters most",
     blocks: [
       {
@@ -713,7 +714,7 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-06-17",
     updated: "2026-10-15",
-    heroImage: "/images/electricity-meter.webp",
+    heroImage: asset("/images/electricity-meter.webp"),
     heroAlt: "Electricity meters mounted in a row, the point where household usage is measured and billed",
     blocks: [
       {
@@ -824,7 +825,7 @@ export const articles: Article[] = [
     readingMinutes: 6,
     published: "2026-07-01",
     updated: "2026-10-15",
-    heroImage: "/images/solar-energy-field.webp",
+    heroImage: asset("/images/solar-energy-field.webp"),
     heroAlt: "Ground-mounted solar arrays stretching toward the horizon under a blue sky",
     blocks: [
       {
@@ -905,7 +906,7 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-07-15",
     updated: "2026-10-15",
-    heroImage: "/images/rooftop-solar-home.webp",
+    heroImage: asset("/images/rooftop-solar-home.webp"),
     heroAlt: "Solar panels across the street-facing roofs of suburban homes, each at a different orientation",
     blocks: [
       {
@@ -1011,7 +1012,7 @@ export const articles: Article[] = [
     readingMinutes: 6,
     published: "2026-08-05",
     updated: "2026-10-15",
-    heroImage: "/images/sunlight-window.webp",
+    heroImage: asset("/images/sunlight-window.webp"),
     heroAlt: "Soft daylight falling through a window onto an interior wall, the diffuse light solar panels also use",
     blocks: [
       {
@@ -1102,7 +1103,7 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-08-19",
     updated: "2026-10-15",
-    heroImage: "/images/solar-panels-roof-rows.webp",
+    heroImage: asset("/images/solar-panels-roof-rows.webp"),
     heroAlt: "Rows of solar panels on tiled roofs, weathered by sun and rain in normal service",
     blocks: [
       {
@@ -1211,7 +1212,7 @@ export const articles: Article[] = [
     readingMinutes: 8,
     published: "2026-09-09",
     updated: "2026-10-15",
-    heroImage: "/images/install-crew-panels.webp",
+    heroImage: asset("/images/install-crew-panels.webp"),
     heroAlt: "Installer working on panels on a metal roof — the workmanship layer of a system's warranties",
     blocks: [
       {
@@ -1337,7 +1338,7 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-08-26",
     updated: "2026-10-15",
-    heroImage: "/images/ev-charging-home.webp",
+    heroImage: asset("/images/ev-charging-home.webp"),
     heroAlt: "An electric vehicle charging at a home wall unit beside a house",
     blocks: [
       {
@@ -1427,7 +1428,7 @@ export const articles: Article[] = [
     readingMinutes: 6,
     published: "2026-09-16",
     updated: "2026-10-15",
-    heroImage: "/images/home-battery-wall.webp",
+    heroImage: asset("/images/home-battery-wall.webp"),
     heroAlt: "Home battery and inverter equipment — the hardware that can supply a house during an outage",
     blocks: [
       {
@@ -1514,7 +1515,7 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-09-30",
     updated: "2026-10-15",
-    heroImage: "/images/solar-farm-aerial.webp",
+    heroImage: asset("/images/solar-farm-aerial.webp"),
     heroAlt: "Aerial view of large solar arrays, representing the scale difference between household and utility energy systems",
     blocks: [
       {
@@ -1612,7 +1613,7 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-10-01",
     updated: "2026-10-15",
-    heroImage: "/images/electrician-work.webp",
+    heroImage: asset("/images/electrician-work.webp"),
     heroAlt: "Technician working inside electrical equipment — the after-sales reality behind every solar purchase",
     blocks: [
       {
@@ -1692,7 +1693,7 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-06-10",
     updated: "2026-10-15",
-    heroImage: "/images/hero-rooftop-install.webp",
+    heroImage: asset("/images/hero-rooftop-install.webp"),
     heroAlt: "Installers working on a rooftop solar array — the labour behind every quote compared",
     blocks: [
       {
@@ -1780,7 +1781,7 @@ export const articles: Article[] = [
     readingMinutes: 8,
     published: "2026-07-22",
     updated: "2026-10-15",
-    heroImage: "/images/modern-home-1.webp",
+    heroImage: asset("/images/modern-home-1.webp"),
     heroAlt: "A contemporary home exterior — the asset whose running costs a solar payback estimate attempts to measure",
     blocks: [
       {
@@ -1875,7 +1876,7 @@ export const articles: Article[] = [
     readingMinutes: 6,
     published: "2026-08-08",
     updated: "2026-10-15",
-    heroImage: "/images/home-battery-wall.webp",
+    heroImage: asset("/images/home-battery-wall.webp"),
     heroAlt: "Wall-mounted battery modules and inverter — equipment rated for both energy capacity and output power",
     blocks: [
       {
@@ -1977,7 +1978,7 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-10-08",
     updated: "2026-10-15",
-    heroImage: "/images/sunlight-window.webp",
+    heroImage: asset("/images/sunlight-window.webp"),
     heroAlt: "Daylight filling a room through a large window — the same diffuse light a solar panel converts",
     blocks: [
       {

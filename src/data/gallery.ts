@@ -8,6 +8,8 @@
  * ---------------------------------------------------------------------------
  */
 
+import { asset } from "../lib/asset";
+
 export type GalleryCategory =
   | "Rooftop solar"
   | "Battery storage"
@@ -39,7 +41,7 @@ export const galleryCategories: GalleryCategory[] = [
 export const galleryItems: GalleryItem[] = [
   {
     id: "rooftops",
-    src: "/images/rooftop-solar-home.webp",
+    src: asset("/images/rooftop-solar-home.webp"),
     alt: "Solar panel arrays covering the pitched roofs of neighbouring suburban houses under a clear blue sky",
     title: "Rooftop solar across a suburban street",
     caption:
@@ -49,7 +51,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "battery-wall",
-    src: "/images/home-battery-wall.webp",
+    src: asset("/images/home-battery-wall.webp"),
     alt: "Two modular home battery units mounted on a wall below an inverter and beside a switchboard in a garage",
     title: "Modular battery beside the switchboard",
     caption:
@@ -59,7 +61,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "panel-detail",
-    src: "/images/solar-panel-macro.webp",
+    src: asset("/images/solar-panel-macro.webp"),
     alt: "Close-up of the cell grid and busbars on the surface of a modern solar panel",
     title: "Panel construction up close",
     caption:
@@ -68,7 +70,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "install-crew",
-    src: "/images/install-crew-panels.webp",
+    src: asset("/images/install-crew-panels.webp"),
     alt: "Installer kneeling on a metal roof wiring a solar panel with hand tools and cable coiled nearby",
     title: "Wiring and clamping on the roof",
     caption:
@@ -78,7 +80,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "roof-array",
-    src: "/images/solar-panels-roof-rows.webp",
+    src: asset("/images/solar-panels-roof-rows.webp"),
     alt: "Solar panels covering pitched terracotta-tiled roofs with brick chimneys, seen across neighbouring houses",
     title: "A roof-filling array",
     caption:
@@ -87,7 +89,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "electrician",
-    src: "/images/electrician-work.webp",
+    src: asset("/images/electrician-work.webp"),
     alt: "Technician's hands working on wiring with a tool inside an open electrical control cabinet",
     title: "Switchboard work",
     caption:
@@ -97,7 +99,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "aerial-farm",
-    src: "/images/solar-farm-aerial.webp",
+    src: asset("/images/solar-farm-aerial.webp"),
     alt: "Aerial photograph looking down on long rows of solar panels built across open ground",
     title: "Utility-scale generation",
     caption:
@@ -107,7 +109,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "ground-mount",
-    src: "/images/solar-energy-field.webp",
+    src: asset("/images/solar-energy-field.webp"),
     alt: "A long row of ground-mounted solar panels set in grass under an overcast sky",
     title: "Ground-mounted arrays",
     caption:
@@ -116,7 +118,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "metering",
-    src: "/images/electricity-meter.webp",
+    src: asset("/images/electricity-meter.webp"),
     alt: "A row of electricity meters mounted on a wall in a multi-dwelling building",
     title: "Metering and tariffs",
     caption:
@@ -125,7 +127,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "ev-charging",
-    src: "/images/ev-charging-home.webp",
+    src: asset("/images/ev-charging-home.webp"),
     alt: "Close-up of a charging cable plugged into the charge port of an electric vehicle",
     title: "Solar and electric vehicles",
     caption:
@@ -135,7 +137,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "architecture",
-    src: "/images/modern-home-1.webp",
+    src: asset("/images/modern-home-1.webp"),
     alt: "Angled view of the clean exterior of a contemporary home with deep eaves and large glazing",
     title: "Design-led homes",
     caption:
@@ -145,7 +147,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "daylight",
-    src: "/images/sunlight-window.webp",
+    src: asset("/images/sunlight-window.webp"),
     alt: "Daylight passing through a window and casting a grid of light and shadow across an interior wall",
     title: "Daylight, measured",
     caption:
@@ -154,7 +156,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "installer-at-work",
-    src: "/images/hero-rooftop-install.webp",
+    src: asset("/images/hero-rooftop-install.webp"),
     alt: "Solar installer in safety glasses and gloves lifting a solar panel into position on a tiled roof",
     title: "Panels in position",
     caption:
