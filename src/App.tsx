@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import { Layout } from "./components/layout/Layout";
 import Home from "./pages/Home";
 
@@ -8,6 +9,7 @@ import Home from "./pages/Home";
  * other page loads on demand. This keeps the initial download small while all
  * pages keep the same layout, header and footer.
  */
+
 const Services = lazy(() => import("./pages/Services"));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
 const Rebates = lazy(() => import("./pages/Rebates"));
@@ -34,7 +36,7 @@ function RouteLoading() {
 
 export default function App() {
   return (
-   <BrowserRouter basename="/solvanta-energy">
+<BrowserRouter basename="/solvanta-energy">
       <Layout>
         <Suspense fallback={<RouteLoading />}>
           <Routes>
