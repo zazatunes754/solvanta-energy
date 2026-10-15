@@ -1,0 +1,299 @@
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowLink } from "../ui/Button";
+import { Media } from "../ui/Media";
+import { SectionHeading } from "../ui/primitives";
+
+/** Editorial value proposition: sticky editorial column plus numbered list. */
+export function Proposition() {
+  const points = [
+    {
+      title: "Start from the bill, not the brochure",
+      body: "We estimate annual consumption from your actual bills, then size generation and storage against it. A system that is too small wastes potential; one that is too large wastes money.",
+    },
+    {
+      title: "Explain the trade-offs honestly",
+      body: "Feed-in rates are lower than usage rates, batteries taper by capacity under federal rules, and blackout protection depends on wiring. We would rather you understood the trade-off than be surprised later.",
+    },
+    {
+      title: "Leave you able to check our work",
+      body: "Every estimate on this site shows the rates, yields and assumptions behind it — including an editable panel in the estimator itself. If a figure looks wrong, you can change it and see the effect.",
+    },
+  ];
+
+  return (
+    <section className="section" aria-labelledby="proposition-title">
+      <div className="container">
+        <div className="prop">
+          <div className="prop__aside">
+            <p className="eyebrow">Why Solvanta</p>
+            <h2 className="prop__statement" id="proposition-title">
+              Energy decisions age better when the reasoning is written down.
+            </h2>
+            <p className="lede" style={{ fontSize: "var(--step-0)" }}>
+              A solar and battery system is a fifteen to twenty year asset. The design conversation
+              that precedes it should be just as durable.
+            </p>
+            <p>
+              <ArrowLink to="/about">How we work</ArrowLink>
+            </p>
+          </div>
+
+          <ol className="num-list">
+            {points.map((point) => (
+              <li key={point.title}>
+                <div>
+                  <h3>{point.title}</h3>
+                  <p>{point.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Explains what "energy independence" actually means, hour by hour. */
+export function Independence() {
+  const steps = [
+    {
+      time: "06:00 – 09:00",
+      title: "Morning shoulder",
+      body: "Low generation, high household demand. Import is normal here — this is when time-of-use tariffs bite hardest.",
+    },
+    {
+      time: "09:00 – 15:00",
+      title: "The earning window",
+      body: "Generation peaks. The array covers the house first, then charges storage, then exports whatever is left.",
+    },
+    {
+      time: "15:00 – 21:00",
+      title: "The evening peak",
+      body: "Generation falls away as demand rises. This is the block a well-sized battery is designed to cover.",
+    },
+    {
+      time: "21:00 – 06:00",
+      title: "Overnight",
+      body: "Storage carries what is left of the evening, or the grid supplies it — and you decide which, by choosing the size.",
+    },
+  ];
+
+  return (
+    <section className="section on-deep" aria-labelledby="independence-title">
+      <div className="container">
+        <div className="section-head section-head--split">
+          <div className="stack">
+            <p className="eyebrow">Independence, defined</p>
+            <h2 className="section-head__title" id="independence-title">
+              Independence is not going off-grid. It is deciding when you buy power.
+            </h2>
+          </div>
+          <p className="lede" style={{ color: "var(--text-on-deep-muted)" }}>
+            A grid connection keeps your home reliable. Solar and storage change the arithmetic of
+            every hour in the day — if they are sized for the hours that actually cost you money.
+          </p>
+        </div>
+
+        <div className="arc">
+          <svg
+            className="arc__svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M20 108 C 260 8, 940 8, 1180 108"
+              fill="none"
+              stroke="rgba(244,241,232,0.24)"
+              strokeWidth="2"
+            />
+            <circle cx="600" cy="21" r="7" fill="var(--gold-400)" />
+          </svg>
+
+          <div className="arc__steps">
+            {steps.map((step) => (
+              <div className="arc__step" key={step.time}>
+                <p className="arc__time">{step.time}</p>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p style={{ marginTop: "var(--space-7)" }}>
+          <Link to="/solar-estimator" className="arrow-link">
+            Model your own day in the estimator
+            <ArrowRight className="btn__icon" aria-hidden="true" />
+          </Link>
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/** Installation process, written as an editorial numbered sequence. */
+export function ProcessSection() {
+  const steps = [
+    {
+      title: "Assess",
+      body: "We start with consumption data, roof and switchboard photos, shading and your goals. No size is recommended before this step.",
+      list: ["Usage and interval data review", "Roof, shading and switchboard check"],
+    },
+    {
+      title: "Design",
+      body: "You receive a written design: array layout, equipment specification, expected generation, and the assumptions behind every number.",
+      list: ["Specification in writing", "Generation estimate with assumptions"],
+    },
+    {
+      title: "Install",
+      body: "Accredited installers complete the work to the applicable standards, with the compliance documentation and grid approvals handled as required.",
+      list: ["Accredited installation", "Safety and compliance documentation"],
+    },
+    {
+      title: "Optimise",
+      body: "After handover we set up monitoring and review how the system behaves, then look at load shifting and tariff fit.",
+      list: ["Monitoring setup and walkthrough", "Load shifting recommendations"],
+    },
+  ];
+
+  return (
+    <section className="section on-deep" aria-labelledby="process-title">
+      <div className="container">
+        <SectionHeading
+          eyebrow="The process"
+          title={<span id="process-title">Four stages, in this order, every time.</span>}
+          lede="The sequence matters more than the speed. Skipping the assessment is how households end up with a system that never matched their usage."
+        />
+
+        <div className="process" style={{ marginTop: "var(--space-7)" }}>
+          {steps.map((step) => (
+            <div className="process__step" key={step.title}>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+              <ul>
+                {step.list.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Split section pairing photography with a plain-language explanation. */
+export function TechnologySplit() {
+  return (
+    <section className="section" aria-labelledby="technology-title">
+      <div className="container">
+        <div className="split">
+          <div className="split__media split__media--tall">
+            <Media
+              src="/images/sunlight-window.webp"
+              alt="Daylight passing through a window casting a grid of light and shadow across an interior wall"
+            />
+          </div>
+          <div className="split__body">
+            <p className="eyebrow">What you are buying</p>
+            <h2 id="technology-title">
+              A system is a set of decisions, not a product on a shelf.
+            </h2>
+            <p className="lede">
+              Panels, inverter, mounting, storage, switchboard work and monitoring each change the
+              outcome. Two quotes with the same system size can differ by thousands of dollars and
+              by years of service life.
+            </p>
+            <ul className="tick-list" style={{ marginTop: "var(--space-4)" }}>
+              {[
+                "Panel output and degradation terms, not just panel count.",
+                "Inverter type and whether it can support storage later.",
+                "Mounting, cable management and isolation quality.",
+                "Battery chemistry, usable capacity and power output.",
+                "Monitoring that reports what you need to see.",
+              ].map((item) => (
+                <li key={item}>
+                  <ArrowRight aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p>
+              <Link to="/knowledge-hub/questions-to-ask-an-installer" className="arrow-link">
+                Twelve questions to ask any installer
+                <ArrowRight className="btn__icon" aria-hidden="true" />
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Small helper section that links into the gallery from the home page. */
+export function GalleryPreview() {
+  const images = [
+    {
+      src: "/images/install-crew-panels.webp",
+      alt: "Installer wiring a solar panel array on a metal roof with tools beside them",
+      caption: "Roof work",
+    },
+    {
+      src: "/images/home-battery-wall.webp",
+      alt: "Stacked home battery modules and inverter mounted on a garage wall",
+      caption: "Storage",
+    },
+    {
+      src: "/images/solar-panel-macro.webp",
+      alt: "Macro detail of the cell grid on a solar panel surface",
+      caption: "Equipment",
+    },
+  ];
+
+  return (
+    <section className="section section--tight" aria-labelledby="gallery-preview-title">
+      <div className="container">
+        <SectionHeading
+          eyebrow="Solutions gallery"
+          title={<span id="gallery-preview-title">What these systems look like in practice.</span>}
+          aside={
+            <div className="stack">
+              <p className="lede">
+                A reference gallery of technologies and installation styles — clearly labelled as
+                inspiration, not as a portfolio of completed customer projects.
+              </p>
+              <Link className="arrow-link" to="/solutions">
+                Open the gallery
+                <ArrowRight className="btn__icon" aria-hidden="true" />
+              </Link>
+            </div>
+          }
+        />
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gap: "var(--space-4)",
+            marginTop: "var(--space-6)",
+          }}
+        >
+          {images.map((image) => (
+            <figure className="figure figure--zoom" key={image.src} style={{ aspectRatio: "4 / 3" }}>
+              <Media src={image.src} alt={image.alt} />
+              <figcaption className="figure__overlay">
+                <span className="gallery__cat">{image.caption}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,216 @@
+# Solvanta Energy
+
+A production-quality marketing and planning website for a solar and battery
+business in Australia: solar, battery and hybrid system information, a fully
+transparent savings estimator, verified incentive information, a knowledge hub,
+and an honest enquiry flow.
+
+Built with **React 19 + TypeScript + Vite + React Router**, styled with a custom
+CSS design system (no framework), icons from Lucide. No backend required.
+
+> **Fictional brand notice:** "Solvanta Energy" is a placeholder brand created
+> for this project. Business details (phone, email, address, ABN, licences) are
+> deliberately empty or marked for update — the interface hides anything that
+> has not been verified rather than inventing it. See
+> [RESEARCH_NOTES.md](RESEARCH_NOTES.md) for the content policy.
+
+---
+
+## Quick start
+
+Requirements: **Node.js 20.19+ or 22.12+** (developed on Node 24) and npm.
+
+```powershell
+npm install
+npm run dev        # start the dev server (prints a local URL, usually http://localhost:5173)
+```
+
+Other scripts:
+
+| Script | What it does |
+| --- | --- |
+| `npm run dev` | Vite dev server with hot reload |
+| `npm run build` | Type-checks (`tsc --noEmit`) then builds to `dist/` |
+| `npm run preview` | Serves the production build locally (http://localhost:4173) |
+| `npm run typecheck` | Type-check only |
+
+## Pages and routes
+
+| Route | Contents |
+| --- | --- |
+| `/` | Long-form home page: value proposition, nine services, estimator teaser, how solar works, component guide, battery and backup, grid vs battery, performance and sizing, process, incentives, costs and savings, pros and cons, decision paths, gallery and knowledge previews, featured FAQs |
+| `/services` | All nine service lines with inclusions and suitability notes |
+| `/services/:slug` | Full per-service guide: planning, sizing, installation stages, warranties, honest limitations and service-specific FAQs |
+| `/solar-rebates` | Federal and state incentive programs, each dated, status-labelled and linked to its official source — plus how to verify eligibility yourself and what could change next |
+| `/solar-estimator` | Interactive savings estimator: bill size, state, battery size, roof factor, existing solar — with every assumption disclosed and overridable, a three-scenario comparison and "how the model thinks" explainers |
+| `/solutions` | Reference gallery (explicitly labelled as reference imagery, not a portfolio) with keyboard-accessible lightbox and a component glossary |
+| `/knowledge-hub` | Article index; twenty full articles with per-article takeaways, related links and source lists |
+| `/knowledge-hub/:slug` | Article pages |
+| `/about` | How the business works, how it estimates and prices, its commitments and its honesty policy |
+| `/faq` | 44 questions across ten topic categories, with FAQ structured data |
+| `/contact` | Enquiry form with validation, guidance on preparing a quote request, honest delivery handling, and what-happens-next |
+| `/privacy`, `/terms`, `/accessibility` | Plain-English legal and accessibility pages describing what the site actually does |
+| anything else | Branded 404 with helpful links |
+
+All routes are code-split: the home page ships in the first bundle, every other
+page loads on demand.
+
+## Where to edit content
+
+Everything a business owner needs to change lives in two places:
+
+**`src/config/site.ts`** — brand name and tagline, public URL, contact details
+(email, phone, address, hours), service coverage, social profiles, legal entity
+details, company facts (founded year, ABN, licence numbers), feature flags,
+navigation, footer groups and the announcement strip.
+
+Fields left empty are **hidden automatically** across the header, footer,
+contact page and structured data. There are no placeholder phone numbers or
+fake reviews anywhere.
+
+**`src/data/`** — the content itself:
+
+| File | Contents |
+| --- | --- |
+| `estimatorAssumptions.ts` | All estimator assumptions: state rates, yields, costs, battery tiers, disclaimers |
+| `services.ts` | The nine service lines, each with a full guide (content blocks) and its own FAQs |
+| `incentives.ts` | Rebate programs with `lastVerified` dates and official source links |
+| `articles.ts` | Twenty knowledge hub articles: blocks, takeaways, related articles/services and sources |
+| `contentTypes.ts` | Shared block types for articles and service guides |
+| `gallery.ts` | Reference gallery entries (alt text, captions, categories) |
+| `faqs.ts` | FAQ questions, categories and featured selections |
+
+## The savings estimator
+
+- Pure calculation in `src/lib/estimator.ts`; every assumption is visible on the
+  page and can be overridden by the visitor (retail rate, feed-in tariff, panel
+  and battery costs).
+- Battery storage uses the federal Cheaper Home Batteries taper (0–14 kWh at
+  100%, 14–28 at 60%, 28–50 at 15%), with the source linked in the UI.
+- Results are always presented as a range and labelled **indicative** — never as
+  a quote or a guarantee.
+- Three scenarios are modelled on the same inputs: solar only, solar + battery
+  at the chosen size, and a conservative case (storage included, export income
+  counted as zero, low end of the range) — the comparison never implies that a
+  battery or a larger system is automatically better.
+- A "how the model thinks" section walks through each step of the calculation
+  (bill → consumption → array size → split of generation → money), and a callout
+  separates a modelled estimate from what a proposal can actually promise.
+- Deep links work: `/solar-estimator?state=VIC&bill=650&battery=13.5`
+  (`battery=0` models solar-only).
+- The "continue to enquiry" button carries the estimate to the contact form via
+  session storage; a pre-filled summary is included in the enquiry notes.
+
+## Enquiry form delivery
+
+The form validates inputs client-side and then:
+
+1. **If `site.contact.endpoint` is set** (Formspree, Basin, Netlify Forms, your
+   own API…), it POSTs the enquiry as JSON to that endpoint. Optional extra
+   headers via `site.contact.endpointHeaders` (never put secrets there — this
+   file ships to the browser).
+2. **If only `site.contact.email` is set**, it opens a pre-filled email draft
+   via `mailto:` — nothing is transmitted by the site itself.
+3. **If neither is set** (the current state), it offers the enquiry details to
+   copy, and says plainly that no submission service is connected yet.
+
+This behaviour is described honestly on the contact page and privacy page and
+adapts automatically as soon as you configure an endpoint or email.
+
+## Honesty and truthfulness policy
+
+- No invented testimonials, statistics, certifications, ratings, customer
+  counts, or contact details. Anywhere.
+- Gains from incentives are described per program rules and always linked to
+  the official administrator; nobody is told they "qualify".
+- Estimates are labelled indicative everywhere and their assumptions are
+  published; the one modelling placeholder in the estimator
+  (`indicativeDiscountPerEligibleKwh`) is explicitly flagged in
+  `estimatorAssumptions.ts` and in the UI.
+- Legal pages carry an automatic "note for the site owner" while
+  `site.legal.entityName` still contains the words *update before launch* —
+  the note removes itself once real details are entered.
+- No analytics, no tracking pixels, no cookies. The privacy page documents
+  exactly what *does* happen (session-storage prefill, Google Fonts request,
+  hosting logs).
+
+## Accessibility
+
+Targets WCAG 2.2 AA: semantic landmarks, skip link, visible focus styles,
+keyboard-operable menu / accordion / lightbox (Escape closes, focus returns),
+reduced-motion support, labelled form fields with associated errors, alt text
+reviewed against each photo, reflow down to 320px. The accessibility page
+documents this in plain English, including honest limitations. It has not yet
+been independently audited — see the checklist at the bottom of this file.
+
+## SEO and metadata
+
+- Per-route titles, descriptions, canonical URLs and Open Graph tags via
+  `src/hooks/useSeo.ts`.
+- Organisation structured data (minimal and truthful); FAQ page emits FAQPage
+  structured data.
+- `public/robots.txt` and `public/sitemap.xml` are included. **Both contain the
+  placeholder domain `https://www.solvanta.example` — update them along with
+  `site.url` in `src/config/site.ts` at launch.**
+
+## Deployment
+
+The output in `dist/` is a static SPA. Because routes are client-side, the host
+must fall back to `index.html` for unknown paths:
+
+- **Netlify**: `public/_redirects` is already included and copied to `dist/`.
+- **Vercel**: add a rewrite of `/(.*)` to `/index.html`.
+- **Apache/Nginx/other**: route unknown paths to `/index.html` (200).
+
+Suggested flow:
+
+```powershell
+npm run build
+npm run preview   # verify the production build locally first
+```
+
+## Before launch — required configuration
+
+1. `src/config/site.ts`: replace the brand details if you keep the template;
+   add `contact.email`, `contact.phone`, `contact.address`; set
+   `contact.endpoint` if you want automated enquiry delivery; add `company.abn`,
+   licence numbers and `legal.entityName`; add real social URLs.
+2. Set `site.url` to the real domain, and update `public/robots.txt` and
+   `public/sitemap.xml` to match.
+3. Replace `public/images/social-card.jpg` if you want a different sharing
+   image (1.91:1 ratio).
+4. Re-verify incentives and estimator assumptions — follow the checklist in
+   [RESEARCH_NOTES.md](RESEARCH_NOTES.md).
+5. Have privacy, terms and accessibility pages reviewed for your business and
+   jurisdiction.
+6. Consider self-hosting the fonts (see [ASSET_SOURCES.md](ASSET_SOURCES.md))
+   if you want zero third-party runtime requests.
+7. Run the accessibility checks with real assistive technology and, ideally,
+   commission an independent audit.
+
+## Project structure
+
+```
+public/            static assets (images, favicon, robots, sitemap, _redirects)
+src/
+  components/
+    forms/         enquiry form
+    layout/        Header, Footer, Layout, DocLayout (legal page shell)
+    sections/      home page sections + shared CTA bands
+    ui/            Button, Accordion, Field, Lightbox, Media, Logo, icons…
+  config/site.ts   central business configuration
+  data/            content: services, incentives, articles, gallery, FAQs, assumptions
+  hooks/           useSeo, useReveal
+  lib/             estimator engine, formatting helpers
+  pages/           one file per route
+  styles/          tokens → base → components → pages (cascade order)
+```
+
+## Credits
+
+- Photography: Pexels (free licence) — full credits in
+  [ASSET_SOURCES.md](ASSET_SOURCES.md).
+- Icons: [Lucide](https://lucide.dev) (ISC licence) plus Simple Icons (CC0)
+  for social glyphs.
+- Fonts: Fraunces, Manrope, JetBrains Mono (Google Fonts, OFL).
+- Incentive research and sources: [RESEARCH_NOTES.md](RESEARCH_NOTES.md).

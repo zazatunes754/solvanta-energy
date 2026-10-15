@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Absolute URL required by the robots.txt spec.
+# Replace solvanta.example with the real domain before launch (see README).
+Sitemap: https://www.solvanta.example/sitemap.xml

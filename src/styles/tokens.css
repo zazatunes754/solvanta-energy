@@ -1,0 +1,151 @@
+/* ==========================================================================
+   SOLVANTA ENERGY — DESIGN TOKENS
+   Single source of truth for colour, type, space, radius, shadow and motion.
+   ========================================================================== */
+
+:root {
+  /* --- Colour: brand ----------------------------------------------------- */
+  --ink-950: #07100c;
+  --ink-900: #0b1712;
+  --ink-800: #12241c;
+  --ink-700: #17301f;
+
+  --forest-800: #123326;
+  --forest-700: #163f2e;
+  --forest-600: #1d5540;
+  --forest-500: #26694f;
+  --forest-400: #3d8a6b;
+  --forest-200: #a9c8ba;
+
+  --lime-500: #b4ec3f;
+  --lime-400: #c8f56b;
+  --lime-600: #96d321;
+  --lime-100: #eefbd4;
+
+  --gold-500: #d9a542;
+  --gold-400: #e9b85c;
+  --gold-200: #f5dfae;
+
+  --ivory-100: #f8f5ee;
+  --ivory-200: #f1ece1;
+  --ivory-300: #e4ddcd;
+  --white: #ffffff;
+
+  --slate-700: #33443b;
+  --slate-600: #4e5f56;
+  --slate-500: #5c6d63;
+  --slate-400: #8e9d95;
+
+  /* --- Colour: semantic -------------------------------------------------- */
+  --bg: var(--ivory-100);
+  --bg-raised: var(--white);
+  --bg-sunken: var(--ivory-200);
+  --bg-deep: var(--ink-900);
+  --bg-deep-2: var(--ink-950);
+
+  --text: var(--ink-900);
+  --text-body: var(--slate-700);
+  --text-muted: var(--slate-500);
+  --text-on-deep: #f4f1e8;
+  --text-on-deep-muted: #a8b8ae;
+
+  --accent: var(--lime-500);
+  --accent-strong: var(--lime-600);
+  --accent-soft: var(--lime-100);
+  --accent-ink: var(--ink-900);
+
+  --highlight: var(--gold-400);
+
+  --success: #1f7a4d;
+  --success-soft: #e3f5e9;
+  --danger: #a63b2a;
+  --danger-soft: #fbe9e5;
+  --info: #235e77;
+  --info-soft: #e5f1f6;
+
+  --line: rgba(11, 23, 18, 0.14);
+  --line-soft: rgba(11, 23, 18, 0.08);
+  --line-strong: rgba(11, 23, 18, 0.28);
+  --line-on-deep: rgba(244, 241, 232, 0.18);
+  --line-on-deep-strong: rgba(244, 241, 232, 0.34);
+
+  /* --- Type ------------------------------------------------------------- */
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "Cascadia Mono", Menlo, monospace;
+
+  /* Fluid type scale (min viewport 320px, max 1440px) */
+  --step--1: clamp(0.83rem, 0.8rem + 0.14vw, 0.9rem);
+  --step-0: clamp(0.98rem, 0.94rem + 0.2vw, 1.08rem);
+  --step-1: clamp(1.15rem, 1.08rem + 0.34vw, 1.34rem);
+  --step-2: clamp(1.35rem, 1.22rem + 0.62vw, 1.72rem);
+  --step-3: clamp(1.6rem, 1.36rem + 1.15vw, 2.3rem);
+  --step-4: clamp(1.95rem, 1.5rem + 2.1vw, 3.1rem);
+  --step-5: clamp(2.35rem, 1.6rem + 3.5vw, 4.2rem);
+  --step-6: clamp(2.8rem, 1.65rem + 5.3vw, 5.6rem);
+
+  --leading-tight: 1.04;
+  --leading-snug: 1.18;
+  --leading-normal: 1.45;
+  --leading-relaxed: 1.62;
+  --tracking-tight: -0.02em;
+  --tracking-tighter: -0.035em;
+  --tracking-wide: 0.08em;
+  --tracking-widest: 0.16em;
+
+  /* --- Space (4px base) ------------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3rem;
+  --space-9: 4rem;
+  --space-10: 5rem;
+  --space-11: 6rem;
+  --space-12: 8rem;
+
+  /* Section rhythm */
+  --section-y: clamp(3.5rem, 7vw, 7.5rem);
+  --section-y-tight: clamp(2.5rem, 4.5vw, 4.5rem);
+
+  /* --- Layout ----------------------------------------------------------- */
+  --container: 1220px;
+  --container-wide: 1440px;
+  --container-narrow: 760px;
+  --gutter: clamp(1.1rem, 4vw, 3rem);
+  --header-h: 76px;
+
+  /* --- Radius ----------------------------------------------------------- */
+  --r-xs: 2px;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --r-xl: 22px;
+  --r-full: 999px;
+
+  /* --- Shadow ----------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(11, 23, 18, 0.06);
+  --shadow-sm: 0 2px 8px rgba(11, 23, 18, 0.07);
+  --shadow-md: 0 10px 30px -12px rgba(11, 23, 18, 0.22);
+  --shadow-lg: 0 24px 60px -24px rgba(11, 23, 18, 0.34);
+  --shadow-deep: 0 30px 80px -30px rgba(0, 0, 0, 0.55);
+
+  /* --- Motion ----------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.5, 0, 0.2, 1);
+  --dur-1: 130ms;
+  --dur-2: 240ms;
+  --dur-3: 420ms;
+  --dur-4: 720ms;
+
+  /* --- Z index ---------------------------------------------------------- */
+  --z-base: 1;
+  --z-sticky: 40;
+  --z-header: 60;
+  --z-drawer: 70;
+  --z-overlay: 90;
+  --z-toast: 100;
+}
