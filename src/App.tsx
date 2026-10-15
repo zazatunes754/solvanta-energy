@@ -34,7 +34,7 @@ function RouteLoading() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+   <BrowserRouter basename="/solvanta-energy">
       <Layout>
         <Suspense fallback={<RouteLoading />}>
           <Routes>
