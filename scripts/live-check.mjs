@@ -17,6 +17,7 @@ page.on("response", (r) => { if (r.status() >= 400) failed.push(`${r.url()} HTTP
 
 await page.goto(`${BASE}/`, { waitUntil: "load" });
 await page.waitForTimeout(2500);
+const homeTitle = await page.title();
 await page.screenshot({ path: path.join(SHOT_DIR, "LIVE-hero.png") });
 
 const direct = await page.goto(`${BASE}/contact`, { waitUntil: "load" });
@@ -35,5 +36,5 @@ const imagesOk = await page.evaluate(() =>
   [...document.querySelectorAll("img")].every((img) => !img.complete || img.naturalWidth > 0),
 );
 
-console.log(JSON.stringify({ homeTitle: await page.title(), contactTitle, contactHeading: heading, estimatorTitle, estimatorShowsFigures: hasFigures, consoleErrors: errors, failedRequests: failed, imagesOk }, null, 2));
+console.log(JSON.stringify({ homeTitle, contactTitle, contactHeading: heading, estimatorTitle, estimatorShowsFigures: hasFigures, consoleErrors: errors, failedRequests: failed, imagesOk }, null, 2));
 await browser.close();
