@@ -34,6 +34,7 @@ Other scripts:
 | `npm run preview` | Serves the production build locally (http://localhost:4173) |
 | `npm run typecheck` | Type-check only |
 | `node scripts/qa.mjs [--smoke]` | Real-browser QA sweep (Playwright + system Chrome): overflow, broken images, console/network errors and interaction tests at mobile/tablet/desktop sizes against `npm run preview` |
+| `node scripts/live-check.mjs` | The same checks against the deployed site (`https://zazatunes754.github.io/solvanta-energy`) |
 | `node scripts/process-images.mjs <source> <name> [width]` | Re-encode a downloaded photo into `public/images/` as a high-quality progressive JPEG (needs the `sharp` dev dependency) |
 
 ## Pages and routes
@@ -161,6 +162,10 @@ been independently audited — see the checklist at the bottom of this file.
 The output in `dist/` is a static SPA. Because routes are client-side, the host
 must fall back to `index.html` for unknown paths:
 
+- **GitHub Pages**: the build ships a copy of the app shell as `dist/404.html`,
+  which GitHub Pages serves for any unmatched path — so direct visits and
+  refreshes on nested routes boot the app and React Router renders the correct
+  page (this is what makes `…/solvanta-energy/contact` work as a direct link).
 - **Netlify**: `public/_redirects` is already included and copied to `dist/`.
 - **Vercel**: add a rewrite of `/(.*)` to `/index.html`.
 - **Apache/Nginx/other**: route unknown paths to `/index.html` (200).
