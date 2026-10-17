@@ -55,6 +55,7 @@ const VIEWPORTS = smoke
 const results = [];
 
 async function main() {
+  fs.mkdirSync(SHOT_DIR, { recursive: true });
   const browser = await chromium.launch({ channel: "chrome" });  for (const vp of VIEWPORTS) {
     const context = await browser.newContext({
       viewport: { width: vp.width, height: vp.height },
@@ -126,7 +127,15 @@ async function main() {
       );
 
       const shot = `${SHOT_DIR}\\${vp.name}${route.replace(/\//g, "_")}.jpg`;
-      await page.screenshot({ path: shot, fullPage: true, type: "jpeg", quality: 88 });
+      try {
+        await page.screenshot({ path: shot, fullPage: true, type: "jpeg", quality: 88 });
+      } catch (err) {
+        issues.push(`Screenshot failed for ${vp.name} ${route}: ${err?.message ?? err}`);
+      }
+      // Never report evidence as captured when the file is missing or empty.
+      if (!fs.existsSync(shot) || fs.statSync(shot).size < 1024) {
+        issues.push(`Screenshot missing or suspiciously small: ${shot}`);
+      }
 
       results.push({
         viewport: vp.name,
@@ -216,10 +225,26 @@ async function main() {
   await browser.close();
 
   // ---- report ----
+  // Cross-check the manifest against the files actually on disk: every
+  // referenced screenshot must exist, and no stale entries are tolerated.
+  const expectedShots = results.map((r) => path.basename(r.shot));
+  const onDisk = fs.existsSync(SHOT_DIR)
+    ? fs.readdirSync(SHOT_DIR).filter((f) => f.endsWith(".jpg"))
+    : [];
+  const missingOnDisk = expectedShots.filter((f) => !onDisk.includes(f));
+  const unreferenced = onDisk.filter((f) => !expectedShots.includes(f));
+  if (missingOnDisk.length) {
+    for (const f of missingOnDisk) issues.push(`Manifest references missing screenshot: ${f}`);
+  }
+  if (unreferenced.length) {
+    for (const f of unreferenced) issues.push(`Screenshot on disk is not referenced by the manifest: ${f}`);
+  }
   const problems = results.filter(
     (r) => r.overflow || r.brokenImages.length || r.consoleErrors.length || r.failedRequests.length,
   );
-  console.log(`\n=== screenshot sweeps: ${results.length}, problem entries: ${problems.length} ===`);
+  console.log(
+    `\n=== screenshot sweeps: ${results.length}, screenshots on disk: ${onDisk.length}, manifest/file mismatches: ${missingOnDisk.length + unreferenced.length}, problem entries: ${problems.length} ===`,
+  );
   for (const r of problems) {
     console.log(`\n[${r.viewport}] ${r.route} — ${r.shot}`);
     if (r.overflow) console.log(`  OVERFLOW: ${r.overflow}`);

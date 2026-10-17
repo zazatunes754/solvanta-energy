@@ -53,7 +53,7 @@ export function HomeHero() {
                 alt="Classic white Queenslander home in Corinda, Brisbane, with a large rooftop solar array across its corrugated metal roof under a blue sky"
                 priority
                 sizes="(min-width: 1000px) 45vw, calc(100vw - 2.2rem)"
-                focus="52% 36%"
+                focus="60% 36%"
               />
               <p className="hero__credit">
                 Corinda, Brisbane QLD · Photo: Kgbo, Wikimedia Commons, CC BY-SA 4.0

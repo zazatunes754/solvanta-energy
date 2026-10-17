@@ -13,3 +13,6 @@ qa/qa-results.json
 Thumbs.db
 .DS_Store
 *.log
+
+# Client deliverables — generated per handoff, not part of the repository.
+deliverables/

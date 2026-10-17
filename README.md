@@ -216,6 +216,11 @@ npm run preview   # verify the production build locally first
 
 ## Before launch — required configuration
 
+Owner-facing checklists: see [HANDOFF.md](HANDOFF.md) for the full
+owner-decision list, and
+[docs/CONTACT-DELIVERY-SETUP.md](docs/CONTACT-DELIVERY-SETUP.md) for
+connecting real enquiry delivery (the one critical launch blocker).
+
 1. `src/config/site.ts`: replace the brand details if you keep the template;
    add `contact.email`, `contact.phone`, `contact.address`; set
    `contact.endpoint` if you want automated enquiry delivery; add `company.abn`,
