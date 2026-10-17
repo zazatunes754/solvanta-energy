@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Clock, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 import { hasContactEmail, hasDeliveryEndpoint, site } from "../config/site";
 import { EnquiryForm, type EnquiryValues } from "../components/forms/EnquiryForm";
 import { Callout, SectionHeading } from "../components/ui/primitives";
+import { Figure } from "../components/ui/Media";
+import { asset } from "../lib/asset";
 import { useSeo } from "../hooks/useSeo";
 
 const PREFILL_KEY = "solvanta-estimate-prefill";
@@ -265,10 +268,17 @@ export default function Contact() {
                 </p>
                 <p className="note-inline" style={{ marginTop: "var(--space-3)" }}>
                   We do not use tracking pixels or third-party analytics scripts on this site. Read
-                  the <a href="/privacy" style={{ textDecoration: "underline" }}>privacy page</a> for
+                  the <Link to="/privacy" style={{ textDecoration: "underline" }}>privacy page</Link> for
                   the full description.
                 </p>
               </div>
+
+              <Figure
+                src={asset("/images/kawana-residential-solar.jpg")}
+                alt="Two-storey Australian home at Kawana Waters, Sunshine Coast, with solar panels across its roof"
+                caption="An everyday Australian home with rooftop solar (Kawana Waters, QLD). Reference photography, not a completed Solvanta project. Photograph: -wuppertaler, Wikimedia Commons, CC BY 4.0."
+                aspect="4 / 3"
+              />
             </div>
           </div>
         </div>

@@ -113,8 +113,8 @@ export default function About() {
             </div>
             <div className="split__media split__media--tall">
               <Media
-                src={asset("/images/modern-home-1.webp")}
-                alt="Angled view of the exterior of a contemporary home with deep eaves and large glazing"
+                src={asset("/images/canberra-solar-suburb-hero.jpg")}
+                alt="Aerial view over a Canberra suburb with solar arrays across many household roofs"
                 focus="50% 40%"
               />
             </div>

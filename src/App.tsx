@@ -35,8 +35,12 @@ function RouteLoading() {
 }
 
 export default function App() {
+  // The router base is derived from the Vite base ("/solvanta-energy/" on
+  // GitHub Pages, "/" locally) so navigation stays correct in every
+  // environment without a second hardcoded value.
+  const basename = import.meta.env.BASE_URL.replace(/\/+$/, "");
   return (
-<BrowserRouter basename="/solvanta-energy">
+    <BrowserRouter basename={basename === "/" ? "" : basename}>
       <Layout>
         <Suspense fallback={<RouteLoading />}>
           <Routes>

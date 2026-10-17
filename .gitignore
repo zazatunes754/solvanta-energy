@@ -1,0 +1,7 @@
+# Dependencies — installed with `npm ci` / `npm install`, never committed.
+node_modules/
+
+# OS / editor noise
+Thumbs.db
+.DS_Store
+*.log

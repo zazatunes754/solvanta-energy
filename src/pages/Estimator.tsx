@@ -23,6 +23,8 @@ import { cents, currency, number } from "../lib/format";
 import { Button } from "../components/ui/Button";
 import { Callout, SectionHeading } from "../components/ui/primitives";
 import { ChipGroup, Field, RangeField, SelectInput, TextInput } from "../components/ui/Field";
+import { Figure } from "../components/ui/Media";
+import { asset } from "../lib/asset";
 import { useSeo } from "../hooks/useSeo";
 import { CtaBand } from "../components/sections/HomeHero";
 
@@ -192,6 +194,20 @@ export default function Estimator() {
             <span>Assumptions reviewed {ESTIMATOR_REVIEWED}</span>
             <span>Runs in your browser — no data is transmitted</span>
           </div>
+        </div>
+      </section>
+
+      <section className="section section--tight" aria-labelledby="estimator-photo-title">
+        <div className="container">
+          <Figure
+            src={asset("/images/canberra-solar-suburb-aerial.jpg")}
+            alt="Aerial view over a Canberra suburb where most household roofs carry solar panel arrays"
+            caption="Suburban Canberra — generation is sized household by household, the same way this estimator models it. Photograph: Benlisquare, Wikimedia Commons, CC BY-SA 4.0."
+            aspect="21 / 9"
+          />
+          <h2 id="estimator-photo-title" className="visually-hidden">
+            Rooftop solar across an Australian suburb
+          </h2>
         </div>
       </section>
 

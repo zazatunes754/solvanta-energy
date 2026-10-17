@@ -33,7 +33,9 @@ export function Media({
   );
 }
 
-/** Image with a caption, used where the caption adds real information. */
+/** Image with a caption, used where the caption adds real information.
+ * The image sits in its own fixed-ratio box (no layout shift) and the caption
+ * flows below it, so long captions are never clipped by the image frame. */
 export function Figure({
   src,
   alt,
@@ -50,8 +52,10 @@ export function Figure({
   aspect?: string;
 }) {
   return (
-    <figure className={`figure ${className ?? ""}`} style={{ aspectRatio: aspect }}>
-      <Media src={src} alt={alt} priority={priority} />
+    <figure className={`figure ${className ?? ""}`}>
+      <div className="figure__media" style={{ aspectRatio: aspect }}>
+        <Media src={src} alt={alt} priority={priority} />
+      </div>
       {caption && <figcaption className="figure__caption">{caption}</figcaption>}
     </figure>
   );

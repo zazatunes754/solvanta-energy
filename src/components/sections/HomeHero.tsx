@@ -49,11 +49,14 @@ export function HomeHero() {
 
             <div className="hero__media">
               <Media
-                src={asset("/images/rooftop-solar-home.webp")}
-                alt="Solar panel arrays covering the roofs of neighbouring suburban homes beneath a clear blue sky"
+                src={asset("/images/kawana-buddina-solar.jpg")}
+                alt="Modern two-storey Australian home at Kawana Waters, Queensland, with a large rooftop solar array under a blue sky"
                 priority
-                focus="50% 45%"
+                focus="52% 38%"
               />
+              <p className="hero__credit">
+                Kawana Waters, QLD · Photo: -wuppertaler, Wikimedia Commons, CC BY 4.0
+              </p>
               <dl className="hero__readout">
                 <div>
                   <dt>Rebates</dt>

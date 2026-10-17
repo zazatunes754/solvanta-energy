@@ -41,13 +41,80 @@ export const galleryCategories: GalleryCategory[] = [
 export const galleryItems: GalleryItem[] = [
   {
     id: "rooftops",
-    src: asset("/images/rooftop-solar-home.webp"),
-    alt: "Solar panel arrays covering the pitched roofs of neighbouring suburban houses under a clear blue sky",
-    title: "Rooftop solar across a suburban street",
+    src: asset("/images/canberra-solar-street-grid.jpg"),
+    alt: "Straight-down aerial view of a Canberra suburban street where most roofs carry photovoltaic solar arrays",
+    title: "A street where solar is the norm",
     caption:
-      "Modern all-black panels laid out to follow the roof planes, keeping the streetscape clean and the array easy to service.",
+      "Suburban Canberra, ACT. Australia leads the world in rooftop solar penetration per capita — and streets like this show what that looks like from above.",
     category: "Rooftop solar",
     size: "wide",
+  },
+  {
+    id: "canberra-hero",
+    src: asset("/images/canberra-solar-suburb-hero.jpg"),
+    alt: "Angled aerial view over a Canberra suburb with solar arrays across tiled and metal roof planes",
+    title: "Arrays following the roof planes",
+    caption:
+      "Canberra, ACT. Layout follows the existing roof geometry — multiple planes, setbacks and hips, each treated on its own merits.",
+    category: "Rooftop solar",
+    size: "wide",
+  },
+  {
+    id: "canberra-backyards",
+    src: asset("/images/canberra-solar-homes-aerial.jpg"),
+    alt: "Top-down aerial view of four Canberra homes with rooftop solar arrays and backyard swimming pools",
+    title: "Different houses, different designs",
+    caption:
+      "Canberra, ACT. Tile and metal roofs, small and large arrays, each sized to the household's consumption rather than the block's boundaries.",
+    category: "Rooftop solar",
+    size: "wide",
+  },
+  {
+    id: "corinda",
+    src: asset("/images/brisbane-corinda-queenslander-solar.jpg"),
+    alt: "Traditional Queenslander house in Corinda, Brisbane with solar panels mounted low across its corrugated iron roof",
+    title: "Solar on a classic Queenslander",
+    caption:
+      "Corinda, Brisbane QLD. Older home styles take solar well — the mounting method changes for corrugated iron, but the design principles do not.",
+    category: "Rooftop solar",
+  },
+  {
+    id: "kawana",
+    src: asset("/images/kawana-residential-solar.jpg"),
+    alt: "Two-storey modern home at Kawana Waters, Sunshine Coast, with solar panels across its upper roof",
+    title: "Two-storey home, coastal sun",
+    caption:
+      "Kawana Waters, QLD. Second-storey roofs often get the cleanest sun — and the wind loads to go with it.",
+    category: "Rooftop solar",
+  },
+  {
+    id: "sydney-commercial",
+    src: asset("/images/sydney-commercial-rooftop-solar.jpg"),
+    alt: "Commercial rooftop solar array in inner Sydney with city high-rises behind it",
+    title: "Commercial solar, inner city",
+    caption:
+      "Inner Sydney, NSW. Commercial roofs with long daytime loads are where self-consumed solar does its best work.",
+    category: "Larger scale",
+    size: "wide",
+  },
+  {
+    id: "solar-car-park",
+    src: asset("/images/castle-plaza-commercial-solar-car-park.jpg"),
+    alt: "Large solar car park shade structure covered in photovoltaic panels at a shopping centre in Adelaide",
+    title: "Solar shade over a car park",
+    caption:
+      "Castle Plaza, Edwardstown SA. Car park canopies turn unused paved land into shaded parking and generation at the same time.",
+    category: "Larger scale",
+    size: "wide",
+  },
+  {
+    id: "solar-car-park-aerial",
+    src: asset("/images/australian-commercial-solar-car-park-aerial.jpg"),
+    alt: "Aerial view of a long solar car park shade structure made of photovoltaic panels in Australia",
+    title: "Car park canopy from above",
+    caption:
+      "A commercial solar shade structure in Australia — the same modules, tilt and spacing logic as a ground-mount array, raised one storey.",
+    category: "Larger scale",
   },
   {
     id: "battery-wall",
@@ -118,12 +185,13 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "metering",
-    src: asset("/images/electricity-meter.webp"),
-    alt: "A row of electricity meters mounted on a wall in a multi-dwelling building",
-    title: "Metering and tariffs",
+    src: asset("/images/australian-battery-switchboard.jpg"),
+    alt: "Australian residential switchboard upgraded to integrate a solar inverter and home battery storage",
+    title: "Switchboard, upgraded",
     caption:
-      "A smart meter with the right tariff configuration is what makes self-consumption measurable — and worth optimising.",
+      "Residential switchboard integrating grid supply, a rooftop solar inverter and battery storage — the electrical work behind every storage system, and one of the parts hardest to retrofit later. Photograph: DezzignProtect, Wikimedia Commons, CC BY-SA 4.0.",
     category: "Metering & monitoring",
+    size: "tall",
   },
   {
     id: "ev-charging",
@@ -136,14 +204,13 @@ export const galleryItems: GalleryItem[] = [
     size: "wide",
   },
   {
-    id: "architecture",
-    src: asset("/images/modern-home-1.webp"),
-    alt: "Angled view of the clean exterior of a contemporary home with deep eaves and large glazing",
-    title: "Design-led homes",
+    id: "canberra-rooftops",
+    src: asset("/images/canberra-solar-rooftops-aerial.jpg"),
+    alt: "Aerial view of adjacent Canberra homes whose roofs all carry different solar array layouts",
+    title: "Neighbouring arrays compared",
     caption:
-      "Good solar design works with architecture: eave shading, roof planes and appliance choices all interact with the system.",
+      "Canberra, ACT. Four similar houses, four different layouts — each shaped by orientation, shade and consumption rather than a template.",
     category: "Rooftop solar",
-    size: "tall",
   },
   {
     id: "daylight",

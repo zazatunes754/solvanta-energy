@@ -1,10 +1,10 @@
 import { CtaBand, HomeHero } from "../components/sections/HomeHero";
 import {
+  AustralianHomes,
   GalleryPreview,
   Independence,
   ProcessSection,
   Proposition,
-  TechnologySplit,
 } from "../components/sections/HomeValue";
 import {
   BatterySection,
@@ -15,11 +15,8 @@ import {
   ComponentGuide,
   CostAndSavings,
   DecisionPaths,
-  GridOrBattery,
   HowSolarWorks,
-  PerformanceFactors,
   ProsAndCons,
-  SizingAndConsumption,
 } from "../components/sections/HomeLearn";
 import {
   EstimatorPreview,
@@ -44,22 +41,19 @@ export default function Home() {
       <Proposition />
       <ServicesPreview />
       <EstimatorPreview />
+      <AustralianHomes />
       <HowSolarWorks />
       <ComponentGuide />
       <BatterySection />
-      <GridOrBattery />
       <Independence />
-      <PerformanceFactors />
-      <SizingAndConsumption />
       <ProcessSection />
       <IncentivesSection />
       <CostAndSavings />
       <ProsAndCons />
-      <DecisionPaths />
-      <TechnologySplit />
       <GalleryPreview />
       <KnowledgePreview />
       <FaqPreview />
+      <DecisionPaths />
       <CtaBand />
     </>
   );

@@ -1,5 +1,6 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { CircleCheck, Copy, Mail, TriangleAlert } from "lucide-react";
+import { Link } from "react-router-dom";
 import { hasContactEmail, hasDeliveryEndpoint, site } from "../../config/site";
 import { Button } from "../ui/Button";
 import { ChipGroup, Field, TextArea, TextInput } from "../ui/Field";
@@ -344,9 +345,9 @@ export function EnquiryForm({
 
         <p className="note-inline">
           We use your details only to respond to this enquiry. Read the{" "}
-          <a href="/privacy" style={{ textDecoration: "underline" }}>
+          <Link to="/privacy" style={{ textDecoration: "underline" }}>
             privacy page
-          </a>{" "}
+          </Link>{" "}
           for exactly what is collected and where it goes.
         </p>
       </form>

@@ -195,9 +195,9 @@ export default function Rebates() {
 
             <div className="split__media split__media--tall">
               <Figure
-                src={asset("/images/ev-charging-home.webp")}
-                alt="Charging cable plugged into the charge port of an electric vehicle"
-                caption="Electrification changes the calculation: an electric vehicle typically increases household consumption and the value of daytime generation."
+                src={asset("/images/brisbane-corinda-queenslander-solar.jpg")}
+                alt="Traditional Queenslander home in Corinda, Brisbane with solar panels on its corrugated iron roof"
+                caption="An illustrative Australian home with rooftop solar — residential premises are eligible for the federal battery discount, subject to the program rules set by the Clean Energy Regulator."
                 aspect="4 / 5"
                 className="figure--tone"
               />

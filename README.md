@@ -33,12 +33,14 @@ Other scripts:
 | `npm run build` | Type-checks (`tsc --noEmit`) then builds to `dist/` |
 | `npm run preview` | Serves the production build locally (http://localhost:4173) |
 | `npm run typecheck` | Type-check only |
+| `node scripts/qa.mjs [--smoke]` | Real-browser QA sweep (Playwright + system Chrome): overflow, broken images, console/network errors and interaction tests at mobile/tablet/desktop sizes against `npm run preview` |
+| `node scripts/process-images.mjs <source> <name> [width]` | Re-encode a downloaded photo into `public/images/` as a high-quality progressive JPEG (needs the `sharp` dev dependency) |
 
 ## Pages and routes
 
 | Route | Contents |
 | --- | --- |
-| `/` | Long-form home page: value proposition, nine services, estimator teaser, how solar works, component guide, battery and backup, grid vs battery, performance and sizing, process, incentives, costs and savings, pros and cons, decision paths, gallery and knowledge previews, featured FAQs |
+| `/` | Long-form home page: value proposition, nine services, a working estimator teaser, Australian editorial photography, how solar works, component guide, battery and incentives, process, costs and savings, pros and cons, gallery and knowledge previews, featured FAQs and decision paths |
 | `/services` | All nine service lines with inclusions and suitability notes |
 | `/services/:slug` | Full per-service guide: planning, sizing, installation stages, warranties, honest limitations and service-specific FAQs |
 | `/solar-rebates` | Federal and state incentive programs, each dated, status-labelled and linked to its official source — plus how to verify eligibility yourself and what could change next |
@@ -149,9 +151,10 @@ been independently audited — see the checklist at the bottom of this file.
   `src/hooks/useSeo.ts`.
 - Organisation structured data (minimal and truthful); FAQ page emits FAQPage
   structured data.
-- `public/robots.txt` and `public/sitemap.xml` are included. **Both contain the
-  placeholder domain `https://www.solvanta.example` — update them along with
-  `site.url` in `src/config/site.ts` at launch.**
+- `public/robots.txt` and `public/sitemap.xml` are included. Both now point at
+  the deployed GitHub Pages URL (`https://zazatunes754.github.io/solvanta-energy/`),
+  matching `site.url` in `src/config/site.ts`. If the site moves to its own
+  domain, update both files together with `site.url`.
 
 ## Deployment
 
@@ -208,7 +211,9 @@ src/
 
 ## Credits
 
-- Photography: Pexels (free licence) — full credits in
+- Photography: verified Australian solar photography from Wikimedia Commons
+  (CC BY / CC BY-SA, credited in-captions), plus Pexels (free licence) for
+  equipment and process shots — full credits in
   [ASSET_SOURCES.md](ASSET_SOURCES.md).
 - Icons: [Lucide](https://lucide.dev) (ISC licence) plus Simple Icons (CC0)
   for social glyphs.

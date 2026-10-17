@@ -90,6 +90,25 @@
   object-fit: cover;
 }
 
+/** Small mandatory photo credit and location note, tucked into the top-right
+ * corner so attribution stays visible without competing with the readout. */
+.hero__credit {
+  position: absolute;
+  top: clamp(0.6rem, 1.6vw, 1rem);
+  right: clamp(0.6rem, 1.6vw, 1rem);
+  z-index: 2;
+  margin: 0;
+  max-width: calc(100% - 2 * clamp(0.6rem, 1.6vw, 1rem));
+  padding: 0.3rem 0.55rem;
+  font-size: 0.62rem;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  color: var(--text-on-deep);
+  background: rgba(7, 16, 12, 0.55);
+  border-radius: var(--r-sm);
+  backdrop-filter: blur(6px);
+}
+
 .hero__media::after {
   content: "";
   position: absolute;

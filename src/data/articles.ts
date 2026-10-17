@@ -607,8 +607,8 @@ export const articles: Article[] = [
     readingMinutes: 8,
     published: "2026-06-03",
     updated: "2026-10-15",
-    heroImage: asset("/images/modern-home-1.webp"),
-    heroAlt: "A modern home with an uncluttered roof, typical of the properties where system sizing matters most",
+    heroImage: asset("/images/kawana-buddina-solar.jpg"),
+    heroAlt: "Two-storey Australian home at Kawana Waters, Queensland, with a differently sized solar array on its roof",
     blocks: [
       {
         type: "p",
@@ -825,8 +825,8 @@ export const articles: Article[] = [
     readingMinutes: 6,
     published: "2026-07-01",
     updated: "2026-10-15",
-    heroImage: asset("/images/solar-energy-field.webp"),
-    heroAlt: "Ground-mounted solar arrays stretching toward the horizon under a blue sky",
+    heroImage: asset("/images/canberra-solar-suburb-aerial.jpg"),
+    heroAlt: "Aerial view of suburban Canberra rooftops where most roofs export some energy back to the grid",
     blocks: [
       {
         type: "p",
@@ -906,8 +906,8 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-07-15",
     updated: "2026-10-15",
-    heroImage: asset("/images/rooftop-solar-home.webp"),
-    heroAlt: "Solar panels across the street-facing roofs of suburban homes, each at a different orientation",
+    heroImage: asset("/images/canberra-solar-suburb-hero.jpg"),
+    heroAlt: "Aerial view over a Canberra suburb showing solar arrays arranged at different orientations across roof planes",
     blocks: [
       {
         type: "p",
@@ -1103,8 +1103,8 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-08-19",
     updated: "2026-10-15",
-    heroImage: asset("/images/solar-panels-roof-rows.webp"),
-    heroAlt: "Rows of solar panels on tiled roofs, weathered by sun and rain in normal service",
+    heroImage: asset("/images/kawana-residential-solar.jpg"),
+    heroAlt: "Solar panels mounted neatly on the upper roof of a modern two-storey home at Kawana Waters, Queensland",
     blocks: [
       {
         type: "p",
@@ -1212,8 +1212,8 @@ export const articles: Article[] = [
     readingMinutes: 8,
     published: "2026-09-09",
     updated: "2026-10-15",
-    heroImage: asset("/images/install-crew-panels.webp"),
-    heroAlt: "Installer working on panels on a metal roof — the workmanship layer of a system's warranties",
+    heroImage: asset("/images/canberra-solar-rooftops-aerial.jpg"),
+    heroAlt: "Aerial view of neighbouring Canberra homes whose rooftop solar arrays were each laid out differently",
     blocks: [
       {
         type: "p",
@@ -1515,8 +1515,8 @@ export const articles: Article[] = [
     readingMinutes: 7,
     published: "2026-09-30",
     updated: "2026-10-15",
-    heroImage: asset("/images/solar-farm-aerial.webp"),
-    heroAlt: "Aerial view of large solar arrays, representing the scale difference between household and utility energy systems",
+    heroImage: asset("/images/sydney-commercial-rooftop-solar.jpg"),
+    heroAlt: "Grid-connected commercial solar array on a rooftop in inner Sydney with the city skyline behind it",
     blocks: [
       {
         type: "p",
@@ -1781,8 +1781,8 @@ export const articles: Article[] = [
     readingMinutes: 8,
     published: "2026-07-22",
     updated: "2026-10-15",
-    heroImage: asset("/images/modern-home-1.webp"),
-    heroAlt: "A contemporary home exterior — the asset whose running costs a solar payback estimate attempts to measure",
+    heroImage: asset("/images/canberra-solar-homes-aerial.jpg"),
+    heroAlt: "Aerial view of Australian homes with rooftop solar arrays — the assets whose payback the article models",
     blocks: [
       {
         type: "p",

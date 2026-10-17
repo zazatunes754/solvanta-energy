@@ -63,8 +63,8 @@ export const services: Service[] = [
       "Homes with a high bill and a suitable north, east or west roof",
       "Owners planning to add a battery in the next one to three years",
     ],
-    image: asset("/images/solar-panels-roof-rows.webp"),
-    imageAlt: "Rows of solar panels across the pitched, tiled roofs of neighbouring homes",
+    image: asset("/images/canberra-solar-street-grid.jpg"),
+    imageAlt: "Aerial overhead view of a Canberra suburban street where nearly every roof carries a solar array",
     icon: "sun",
     guide: [
       {
@@ -552,8 +552,8 @@ export const services: Service[] = [
       "Homes planning a battery within a year of installing solar",
       "Households electrifying heating, hot water or a vehicle",
     ],
-    image: asset("/images/rooftop-solar-home.webp"),
-    imageAlt: "Solar panels across the roofs of neighbouring suburban homes under a clear sky",
+    image: asset("/images/canberra-solar-homes-aerial.jpg"),
+    imageAlt: "Aerial view of Australian homes with rooftop solar arrays, ready to pair with battery storage",
     icon: "layers",
     guide: [
       {
@@ -1033,8 +1033,8 @@ export const services: Service[] = [
       "Retail and hospitality sites with air-conditioning load",
       "Agricultural operations with pumping and processing loads",
     ],
-    image: asset("/images/solar-farm-aerial.webp"),
-    imageAlt: "Aerial view of long rows of solar panels arranged across open ground",
+    image: asset("/images/castle-plaza-commercial-solar-car-park.jpg"),
+    imageAlt: "Large commercial solar car park shade structure covered in photovoltaic panels at Castle Plaza, South Australia",
     icon: "building",
     guide: [
       {

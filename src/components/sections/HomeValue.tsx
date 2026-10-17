@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ArrowLink } from "../ui/Button";
-import { Media } from "../ui/Media";
+import { Figure, Media } from "../ui/Media";
 import { SectionHeading } from "../ui/primitives";
 import { asset } from "../../lib/asset";
 
@@ -188,67 +188,25 @@ export function ProcessSection() {
   );
 }
 
-/** Split section pairing photography with a plain-language explanation. */
-export function TechnologySplit() {
-  return (
-    <section className="section" aria-labelledby="technology-title">
-      <div className="container">
-        <div className="split">
-          <div className="split__media split__media--tall">
-            <Media
-              src={asset("/images/sunlight-window.webp")}
-              alt="Daylight passing through a window casting a grid of light and shadow across an interior wall"
-            />
-          </div>
-          <div className="split__body">
-            <p className="eyebrow">What you are buying</p>
-            <h2 id="technology-title">
-              A system is a set of decisions, not a product on a shelf.
-            </h2>
-            <p className="lede">
-              Panels, inverter, mounting, storage, switchboard work and monitoring each change the
-              outcome. Two quotes with the same system size can differ by thousands of dollars and
-              by years of service life.
-            </p>
-            <ul className="tick-list" style={{ marginTop: "var(--space-4)" }}>
-              {[
-                "Panel output and degradation terms, not just panel count.",
-                "Inverter type and whether it can support storage later.",
-                "Mounting, cable management and isolation quality.",
-                "Battery chemistry, usable capacity and power output.",
-                "Monitoring that reports what you need to see.",
-              ].map((item) => (
-                <li key={item}>
-                  <ArrowRight aria-hidden="true" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p>
-              <Link to="/knowledge-hub/questions-to-ask-an-installer" className="arrow-link">
-                Twelve questions to ask any installer
-                <ArrowRight className="btn__icon" aria-hidden="true" />
-              </Link>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/** Small helper section that links into the gallery from the home page. */
+/** Small helper section that links into the gallery from the home page.
+ * Deliberately uses photographs that do not appear in the AustralianHomes
+ * editorial section above, so the two photography moments stay distinct. */
 export function GalleryPreview() {
   const images = [
     {
-      src: asset("/images/install-crew-panels.webp"),
-      alt: "Installer wiring a solar panel array on a metal roof with tools beside them",
-      caption: "Roof work",
+      src: asset("/images/sydney-commercial-rooftop-solar.jpg"),
+      alt: "Commercial rooftop solar array beside a heritage building in the Sydney CBD",
+      caption: "Commercial rooftop",
     },
     {
-      src: asset("/images/home-battery-wall.webp"),
-      alt: "Stacked home battery modules and inverter mounted on a garage wall",
-      caption: "Storage",
+      src: asset("/images/australian-commercial-solar-car-park-aerial.jpg"),
+      alt: "Aerial view of a solar shade structure over a commercial car park in Australia",
+      caption: "Car-park shade",
+    },
+    {
+      src: asset("/images/solar-panels-roof-rows.webp"),
+      alt: "Solar panels across neighbouring terracotta-tiled residential roofs",
+      caption: "Tiled roofs",
     },
     {
       src: asset("/images/solar-panel-macro.webp"),
@@ -293,6 +251,69 @@ export function GalleryPreview() {
               </figcaption>
             </figure>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/**
+ * Full-width editorial photography section. All three photographs depict real
+ * Australian solar installations with documented locations (Canberra ACT,
+ * Corinda QLD and Kawana Waters QLD). See ASSET_SOURCES.md.
+ */
+export function AustralianHomes() {
+  return (
+    <section className="section on-deep" aria-labelledby="au-homes-title">
+      <div className="container">
+        <SectionHeading
+          eyebrow="Australian homes"
+          title={
+            <span id="au-homes-title">Solar designed around Australian homes.</span>
+          }
+          aside={
+            <div className="stack">
+              <p className="lede" style={{ color: "var(--text-on-deep-muted)" }}>
+                Terracotta tiles, corrugated metal, tropical garden canopies, pool fences and
+                long shifting roof planes — every Australian roof set is different, and the
+                array design starts from what is actually up there.
+              </p>
+              <Link className="arrow-link" to="/solutions">
+                Browse more reference photos
+                <ArrowRight className="btn__icon" aria-hidden="true" />
+              </Link>
+            </div>
+          }
+        />
+
+        <div className="stack" style={{ marginTop: "var(--space-6)", gap: "var(--space-4)" }}>
+          <Figure
+            src={asset("/images/canberra-solar-homes-aerial.jpg")}
+            alt="Straight-down aerial view of a Canberra street where most roofs carry solar panel arrays"
+            caption="Suburban Canberra — a city with some of the highest rooftop solar penetration in the world. Photograph: Benlisquare, Wikimedia Commons, CC BY-SA 4.0."
+            aspect="21 / 10"
+          />
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "var(--space-4)",
+            }}
+          >
+            <Figure
+              src={asset("/images/brisbane-corinda-queenslander-solar.jpg")}
+              alt="Classic Queenslander home in Corinda, Brisbane with solar panels on its corrugated iron roof"
+              caption="A corrugated roof on a classic Queenslander, Corinda QLD. Photograph: Kgbo, Wikimedia Commons, CC BY-SA 4.0."
+              aspect="4 / 3"
+            />
+            <Figure
+              src={asset("/images/kawana-residential-solar.jpg")}
+              alt="Two-storey Australian home at Kawana Waters on the Sunshine Coast with solar panels across its roof"
+              caption="Kawana Waters, Sunshine Coast QLD. Photograph: -wuppertaler, Wikimedia Commons, CC BY 4.0."
+              aspect="4 / 3"
+            />
+          </div>
         </div>
       </div>
     </section>

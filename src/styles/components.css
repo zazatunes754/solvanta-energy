@@ -278,6 +278,15 @@
   transform: scale(1.035);
 }
 
+/* Captioned figures: the image keeps its aspect ratio inside .figure__media
+   and the caption flows underneath, outside the clipped image frame. */
+.figure__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  background: var(--ivory-200);
+}
+
 .figure__caption {
   margin-top: var(--space-3);
   font-family: var(--font-mono);
@@ -287,7 +296,13 @@
   text-transform: none;
 }
 
-.figure--tone::after {
+/* Dark sections need a light caption colour. */
+.on-deep .figure__caption {
+  color: var(--text-on-deep-muted);
+}
+
+/* Optional dark gradient overlay for captions placed over the image. */
+.figure--tone .figure__media::after {
   content: "";
   position: absolute;
   inset: 0;
