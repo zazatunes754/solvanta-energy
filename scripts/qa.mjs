@@ -4,6 +4,12 @@
  * the /solvanta-energy/ base), and Playwright with the system Chrome channel.
  *
  * Usage: node scripts/qa.mjs [--smoke] (smoke = fewer viewports)
+ *
+ * Screenshots are written to qa/ in the repository (override the destination
+ * with QA_SHOT_DIR) as JPEGs so the evidence set stays reviewable without
+ * shipping tens of megabytes of PNG per run. The screenshot contexts emulate
+ * `prefers-reduced-motion` so scroll-reveal content is never captured mid-
+ * fade as a blank block — a screenshot artefact, not a page defect.
  */
 import { chromium } from "playwright";
 import process from "node:process";
@@ -11,7 +17,7 @@ import path from "node:path";
 import fs from "node:fs";
 
 const BASE = "http://localhost:4173/solvanta-energy";
-const SHOT_DIR = `${process.env.TEMP}\\opencode\\qa`;
+const SHOT_DIR = process.env.QA_SHOT_DIR ?? path.resolve("qa");
 const smoke = process.argv.includes("--smoke");
 
 const ROUTES = [
@@ -32,6 +38,7 @@ const ROUTES = [
 const VIEWPORTS = smoke
   ? [
       { name: "mobile-sm", width: 320, height: 800 },
+      { name: "mobile", width: 390, height: 844 },
       { name: "tablet", width: 768, height: 1024 },
       { name: "desktop", width: 1440, height: 900 },
     ]
@@ -51,6 +58,7 @@ async function main() {
   const browser = await chromium.launch({ channel: "chrome" });  for (const vp of VIEWPORTS) {
     const context = await browser.newContext({
       viewport: { width: vp.width, height: vp.height },
+      reducedMotion: "reduce",
       fontFamilies: undefined,
     });
     const page = await context.newPage();
@@ -117,8 +125,8 @@ async function main() {
           .map((img) => img.getAttribute("src")),
       );
 
-      const shot = `${SHOT_DIR}\\${vp.name}${route.replace(/\//g, "_")}.png`;
-      await page.screenshot({ path: shot, fullPage: true });
+      const shot = `${SHOT_DIR}\\${vp.name}${route.replace(/\//g, "_")}.jpg`;
+      await page.screenshot({ path: shot, fullPage: true, type: "jpeg", quality: 88 });
 
       results.push({
         viewport: vp.name,

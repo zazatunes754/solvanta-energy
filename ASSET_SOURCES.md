@@ -17,7 +17,7 @@ section, estimator, contact, solutions gallery).
 | File (in `public/images/`) | Location (evidence) | Photographer | Licence | Commons file page | Used in |
 | --- | --- | --- | --- | --- | --- |
 | `kawana-buddina-solar.jpg` | Kawana Waters, Buddina QLD (file description: "In Kawana Waters, Sunshine Coast Region, Queensland, Australien") | -wuppertaler | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:AUS_Kawana_Waters,_Buddina,_Pacific_Boulevard_001.jpg | Retired — former home hero (see retired table) |
-| `brisbane-corinda-queenslander-2021-solar.jpg` | Corinda QLD, 2021 (file description: "Houses in Corinda, Queensland, 2021" — white Queenslander with rooftop solar) | Kgbo | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Houses_in_Corinda,_Queensland,_2021,_01.jpg | **Home hero** (credit visible in the hero caption) |
+| `brisbane-corinda-queenslander-2021-solar.jpg` | Corinda QLD, 2021 (file description: "Houses in Corinda, Queensland, 2021" — white Queenslander with rooftop solar) | Kgbo | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Houses_in_Corinda,_Queensland,_2021,_01.jpg | **Home hero** (credit visible in the hero caption). Retouched: bottom cropped at y=1295 of 1800 to remove street-side wheelie bins and kerb (pure art-direction crop of the unmodified original, kept on disk as `brisbane-corinda-queenslander-2021-solar-full.jpg`) |
 | `canberra-solar-suburb-hero.jpg` | Canberra ACT (file description: "Residential suburban rooftops with photovoltaic solar panels in Canberra") | Benlisquare | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Suburban_rooftop_solar_power_generation_in_Canberra,_Australia.jpg | About, article cover (orientation), solutions gallery (featured tier), home gallery preview |
 | `canberra-solar-street-grid.jpg` | Canberra ACT (same file series, part 2) | Benlisquare | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Suburban_rooftop_solar_power_generation_in_Canberra,_Australia_(part_2).jpg | Article cover (system design), residential solar service page, solutions gallery (featured lead) |
 | `canberra-solar-suburb-aerial.jpg` | Canberra ACT (same file series, part 3) | Benlisquare | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Suburban_rooftop_solar_power_generation_in_Canberra,_Australia_(part_3).jpg | Article cover (feed-in tariffs), estimator intro, gallery |
@@ -85,6 +85,18 @@ file:
 | `rooftop-solar-home.webp` | Rooftop solar in **Belgium** — replaced wherever it appeared by verified Australian photography. |
 | `modern-home-1.webp` | Modern home, location unverified and no solar panels in frame — removed from the gallery in favour of the Kawana and Canberra photographs. |
 | `kawana-buddina-solar.jpg` | Former home hero. A clear photograph, but the framing included a cable crossing the roof and a busy lot line; replaced as hero by the Corinda 2021 Queenslander, and as the system-size article cover by `kawana-pacific-boulevard-metal-roof.jpg`. Kept on disk in case it suits a future placement. |
+| `brisbane-corinda-queenslander-2021-solar-full.jpg` | Not a retirement — the **uncropped retouch source** for the current hero (see the hero row above). Kept so the crop can be re-tuned without re-downloading; excluded from the variant build. |
+
+### Hero selection note (October 2026)
+
+The hero was re-evaluated against every freely-licensed, location-verified
+Australian residential solar photograph that could be located: the full
+"Solar cell panels on roofs in Australia" category tree on Wikimedia Commons
+(six Canberra aerials, the two Corinda street-level photographs, one small
+school building and three non-residential NSW buildings), plus a CC-licensed
+Flickr/Openverse search. No candidate offered a better composition than the
+Corinda Queenslander, so it was kept and improved by cropping the street-side
+bins and kerb out of the bottom of the frame rather than replaced.
 
 ## Site artwork
 

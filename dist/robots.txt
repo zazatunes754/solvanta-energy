@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-
-# Absolute URL required by the robots.txt spec.
-# Matches src/config/site.ts (`site.url`) and the GitHub Pages deployment.
-Sitemap: https://zazatunes754.github.io/solvanta-energy/sitemap.xml

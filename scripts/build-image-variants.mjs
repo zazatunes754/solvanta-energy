@@ -26,9 +26,24 @@ const OUT_MODULE = path.resolve("src/lib/imageVariants.ts");
 const WEBP_WIDTHS = [640, 960, 1280, 1920];
 const JPEG_FALLBACK_WIDTHS = [960, 1920];
 
+/**
+ * WebP encoder settings. `smartSubsample` + high `effort` give files ~15%
+ * smaller than the default preset at the same visual quality — importantly,
+ * result WebP files now consistently beat their JPEG q80 equivalents, which
+ * the default settings (plain quality 80, default effort) did not achieve on
+ * photographic plates with a lot of high-frequency roof detail.
+ */
+const WEBP_OPTIONS = { quality: 76, effort: 6, smartSubsample: true };
+
 /** Never varianted: retired files kept for reference, and the fixed-size
  * Open Graph sharing image. */
-const SKIP = new Set(["rooftop-solar-home.webp", "modern-home-1.webp", "social-card.jpg"]);
+const SKIP = new Set([
+  "rooftop-solar-home.webp",
+  "modern-home-1.webp",
+  "kawana-buddina-solar.jpg", // retired orginal hero, kept on disk (see ASSET_SOURCES.md)
+  "brisbane-corinda-queenslander-2021-solar-full.jpg", // uncropped retouch source for the hero
+  "social-card.jpg",
+]);
 
 const files = fs
   .readdirSync(IMG_DIR)
@@ -62,7 +77,7 @@ for (const file of files) {
       continue;
     }
     const outName = w === srcW ? `${base}.webp` : `${base}-${w}.webp`;
-    await sharp(full).resize({ width: w, kernel: "lanczos3", withoutEnlargement: true }).webp({ quality: 80 }).toFile(path.join(IMG_DIR, outName));
+    await sharp(full).resize({ width: w, kernel: "lanczos3", withoutEnlargement: true }).webp(WEBP_OPTIONS).toFile(path.join(IMG_DIR, outName));
     entries.webp.push(w);
   }
 

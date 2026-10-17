@@ -71,7 +71,7 @@ export const site = {
    */
   coverage: {
     regions: ["VIC", "NSW", "QLD", "SA", "WA", "TAS", "ACT", "NT"],
-    note: "Coverage depends on our accredited installer network and local requirements. Send your postcode and we will confirm availability before anything is booked.",
+    note: "Coverage depends on installer availability and local requirements. Send your postcode and we will confirm availability before anything is booked.",
     /** Optional list of specific metro/regional hubs, e.g. ["Melbourne", "Geelong"]. */
     hubs: [] as string[],
   },

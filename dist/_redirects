@@ -1,4 +1,0 @@
-# SPA fallback so deep links and refreshes resolve to the app shell.
-# Netlify reads this file automatically. Vercel: add a rewrite in vercel.json.
-# Apache/Nginx: route unknown paths to index.html.
-/*    /index.html   200

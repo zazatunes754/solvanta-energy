@@ -236,21 +236,6 @@ export const imageVariants: Record<string, ImageVariants> = {
     "jpeg": [],
     "webpOnly": true
   },
-  "kawana-buddina-solar": {
-    "width": 2400,
-    "webp": [
-      640,
-      960,
-      1280,
-      1920,
-      2400
-    ],
-    "jpeg": [
-      960,
-      1920,
-      2400
-    ]
-  },
   "kawana-pacific-boulevard-array": {
     "width": 2000,
     "webp": [
