@@ -2,12 +2,10 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { services } from "../../data/services";
 import { federalPrograms } from "../../data/incentives";
-import { estimatorAssumptions } from "../../data/estimatorAssumptions";
 import { Badge, SectionHeading } from "../ui/primitives";
 import { Media } from "../ui/Media";
 import { ServiceIcon } from "../ui/ServiceIcon";
 import { Button } from "../ui/Button";
-import { asset } from "../../lib/asset";
 
 /** Featured service plus an index of the rest, so cards are never repetitive. */
 export function ServicesPreview() {
@@ -70,73 +68,6 @@ export function ServicesPreview() {
               <span className="svc-row__meta">Service</span>
             </Link>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/** Battery deep-dive with the verified federal capacity taper. */
-export function BatterySection() {
-  const tiers = estimatorAssumptions.batteryTiers;
-
-  return (
-    <section className="section on-deep" aria-labelledby="battery-title">
-      <div className="container">
-        <div className="split">
-          <div className="split__body">
-            <p className="eyebrow">Home batteries</p>
-            <h2 id="battery-title">Storage is a sizing problem before it is a shopping problem.</h2>
-            <p className="lede" style={{ color: "var(--text-on-deep-muted)" }}>
-              A battery earns its place by covering the hours when your household imports expensive
-              power. That depends on your surplus, your evening load and your tariff — not on the
-              largest capacity available.
-            </p>
-
-            <div className="tier-cards">
-              {tiers.map((tier) => (
-                <div className="tier" key={tier.label}>
-                  <div>
-                    <p className="tier__label">{tier.label}</p>
-                    <p className="tier__range">{tier.note}</p>
-                  </div>
-                  <p className="tier__pct">{Math.round(tier.factor * 100)}%</p>
-                </div>
-              ))}
-            </div>
-
-            <p className="note-inline" style={{ color: "var(--text-on-deep-muted)" }}>
-              Federal battery support now tapers by installed capacity. Support applies from the
-              first 0–14 kWh at the full STC factor, then reduces. Verified against the Clean Energy
-              Regulator on 15 October 2026 —{" "}
-              <a
-                href={estimatorAssumptions.tierSource.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "var(--lime-400)", textDecoration: "underline" }}
-              >
-                read the official change notice
-              </a>
-              .
-            </p>
-
-            <div className="btn-row">
-              <Button to="/solar-rebates" variant="primary" withIcon>
-                Understand the incentives
-              </Button>
-              <Button to="/services" variant="ghost-deep">
-                Battery installation service
-              </Button>
-            </div>
-          </div>
-
-          <div className="split__media split__media--tall">
-            <Media
-              src={asset("/images/home-battery-wall.webp")}
-              alt="Modular home battery units mounted on a wall beneath an inverter in a garage"
-              focus="50% 35%"
-            />
-          </div>
         </div>
       </div>
     </section>

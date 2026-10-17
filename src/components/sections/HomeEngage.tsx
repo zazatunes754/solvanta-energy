@@ -224,7 +224,34 @@ export function EstimatorPreview() {
   );
 }
 
-/** Three featured knowledge hub articles. */
+/** FAQ items shared with the FAQ page, rendered in the merged section below. */
+const faqItems = featuredFaqIds
+  .map((id) => faqs.find((faq) => faq.id === id))
+  .filter((faq): faq is NonNullable<typeof faq> => Boolean(faq))
+  .map((faq) => ({
+    id: faq.id,
+    heading: faq.question,
+    content: (
+      <>
+        {faq.answer.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+        {faq.link && (
+          <p>
+            {faq.link.external ? (
+              <a href={faq.link.to} target="_blank" rel="noopener noreferrer">
+                {faq.link.label}
+              </a>
+            ) : (
+              <Link to={faq.link.to}>{faq.link.label}</Link>
+            )}
+          </p>
+        )}
+      </>
+    ),
+  }));
+
+/** Knowledge hub articles plus the most-asked questions, in one section. */
 export function KnowledgePreview() {
   return (
     <section className="section" aria-labelledby="knowledge-title">
@@ -261,43 +288,8 @@ export function KnowledgePreview() {
             </article>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
 
-/** FAQ preview built from the shared FAQ data. */
-export function FaqPreview() {
-  const items = featuredFaqIds
-    .map((id) => faqs.find((faq) => faq.id === id))
-    .filter((faq): faq is NonNullable<typeof faq> => Boolean(faq))
-    .map((faq) => ({
-      id: faq.id,
-      heading: faq.question,
-      content: (
-        <>
-          {faq.answer.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-          {faq.link && (
-            <p>
-              {faq.link.external ? (
-                <a href={faq.link.to} target="_blank" rel="noopener noreferrer">
-                  {faq.link.label}
-                </a>
-              ) : (
-                <Link to={faq.link.to}>{faq.link.label}</Link>
-              )}
-            </p>
-          )}
-        </>
-      ),
-    }));
-
-  return (
-    <section className="section" aria-labelledby="faq-preview-title">
-      <div className="container">
-        <div className="prop">
+        <div className="prop" style={{ marginTop: "var(--space-8)" }}>
           <div className="prop__aside">
             <p className="eyebrow">Questions, answered</p>
             <h2 id="faq-preview-title" style={{ fontSize: "var(--step-3)" }}>
@@ -315,7 +307,7 @@ export function FaqPreview() {
             </p>
           </div>
 
-          <Accordion items={items} defaultOpenIds={[featuredFaqIds[0]]} ariaLabel="Frequently asked questions" />
+          <Accordion items={faqItems} defaultOpenIds={[featuredFaqIds[0]]} ariaLabel="Frequently asked questions" />
         </div>
       </div>
     </section>

@@ -1,5 +1,11 @@
 import { useMemo, useState } from "react";
-import { galleryCategories, galleryItems, type GalleryCategory } from "../data/gallery";
+import {
+  featuredGalleryItems,
+  galleryCategories,
+  galleryItems,
+  referenceGalleryItems,
+  type GalleryCategory,
+} from "../data/gallery";
 import { Lightbox } from "../components/ui/Lightbox";
 import { Callout, SectionHeading } from "../components/ui/primitives";
 import { Media } from "../components/ui/Media";
@@ -18,10 +24,22 @@ export default function Solutions() {
   const [filter, setFilter] = useState<GalleryCategory | "All">("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const visible = useMemo(
-    () => (filter === "All" ? galleryItems : galleryItems.filter((item) => item.category === filter)),
+  const featuredVisible = useMemo(
+    () =>
+      filter === "All"
+        ? featuredGalleryItems
+        : featuredGalleryItems.filter((item) => item.category === filter),
     [filter],
   );
+  const referenceVisible = useMemo(
+    () =>
+      filter === "All"
+        ? referenceGalleryItems
+        : referenceGalleryItems.filter((item) => item.category === filter),
+    [filter],
+  );
+  /** One lightbox across both tiers; featured images come first. */
+  const visible = useMemo(() => [...featuredVisible, ...referenceVisible], [featuredVisible, referenceVisible]);
 
   return (
     <>
@@ -54,8 +72,47 @@ export default function Solutions() {
                   "When a verified project portfolio is available it will be published here with the property owner's permission."}
               </p>
             </Callout>
+          </div>
 
-            <div className="tabs" role="group" aria-label="Filter images by category">
+          <div style={{ marginTop: "var(--space-7)" }}>
+            <SectionHeading
+              eyebrow="Featured photographs"
+              title={<span id="gallery-title">Location-verified systems worth a closer look.</span>}
+              lede="Real Australian rooftops with the place they sit on written down — the settings, roof types and scales the design work has to handle."
+            />
+          </div>
+
+          <div className="showcase" style={{ marginTop: "var(--space-6)" }}>
+            {featuredVisible.map((item, index) => (
+              <button
+                type="button"
+                key={item.id}
+                className={`showcase__item${filter === "All" && index === 0 ? " showcase__item--lead" : ""}`}
+                onClick={() => setLightboxIndex(index)}
+              >
+                <div className="showcase__media">
+                  <Media
+                    src={item.src}
+                    alt={item.alt}
+                    sizes={filter === "All" && index === 0 ? "(min-width: 1000px) 90vw, 100vw" : "(min-width: 1000px) 50vw, 100vw"}
+                  />
+                </div>
+                <span className="showcase__caption">
+                  <span className="gallery__cat">{item.category}</span>
+                  <span className="showcase__title">{item.title}</span>
+                  <span className="gallery__note">{item.caption}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+
+          <div style={{ marginTop: "var(--space-8)" }}>
+            <SectionHeading
+              eyebrow="Technical reference"
+              title={<span id="reference-title">Equipment, technique and process.</span>}
+              lede="The detail shots behind the design decisions — filter by the part of the system you are weighing up."
+            />
+            <div className="tabs" role="group" aria-label="Filter images by category" style={{ marginTop: "var(--space-5)" }}>
               <button
                 type="button"
                 className="tab"
@@ -82,20 +139,13 @@ export default function Solutions() {
             </div>
           </div>
 
-          <div style={{ marginTop: "var(--space-6)" }}>
-            <SectionHeading
-              eyebrow={filter === "All" ? "All categories" : filter}
-              title={<span id="gallery-title">{visible.length} images</span>}
-            />
-          </div>
-
           <div className="gallery" style={{ marginTop: "var(--space-6)" }}>
-            {visible.map((item, index) => (
+            {referenceVisible.map((item, index) => (
               <button
                 type="button"
                 key={item.id}
                 className={`gallery__item gallery__item--${item.size ?? "std"}`}
-                onClick={() => setLightboxIndex(index)}
+                onClick={() => setLightboxIndex(featuredVisible.length + index)}
               >
                 <Media src={item.src} alt={item.alt} />
                 <span className="gallery__caption">

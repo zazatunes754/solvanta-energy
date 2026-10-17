@@ -11,15 +11,16 @@ plugins: [
   {
     /**
      * GitHub Pages SPA fallback: GitHub Pages serves a repository's
-     * `404.html` for any path it cannot match. Shipping a copy of the app
-     * shell as `404.html` lets direct visits and refreshes on nested routes
-     * (e.g. /solvanta-energy/contact) boot the SPA, after which React
-     * Router renders the correct page instead of the host's error page.
+     * `404.html` for any path it cannot match. Shipping the app shell as
+     * `404.html` lets direct visits and refreshes on unknown or future routes
+     * boot the SPA. (The prerender step that runs right after this build
+     * overwrites 404.html with a prerendered not-found page that still boots
+     * the SPA; every *known* route ships as its own prerendered index.html.)
      */
     name: "gh-pages-spa-fallback",
     apply: "build",
     closeBundle() {
-      const outDir = path.resolve(__dirname, "dist");
+      const outDir = path.resolve(import.meta.dirname, "dist");
       fs.copyFileSync(path.join(outDir, "index.html"), path.join(outDir, "404.html"));
       console.log("Wrote dist/404.html (SPA fallback for GitHub Pages)");
     },

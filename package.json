@@ -6,7 +6,7 @@
   "description": "Solvanta Energy — solar, battery and energy independence website.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },

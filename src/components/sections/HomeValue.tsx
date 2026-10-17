@@ -1,8 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ArrowLink } from "../ui/Button";
+import { ArrowLink, Button } from "../ui/Button";
 import { Figure, Media } from "../ui/Media";
 import { SectionHeading } from "../ui/primitives";
+import { estimatorAssumptions } from "../../data/estimatorAssumptions";
 import { asset } from "../../lib/asset";
 
 /** Editorial value proposition: sticky editorial column plus numbered list. */
@@ -56,8 +57,12 @@ export function Proposition() {
   );
 }
 
-/** Explains what "energy independence" actually means, hour by hour. */
-export function Independence() {
+/**
+ * Storage and independence, merged into one section: the hour-by-hour arc of a
+ * solar day, then the battery sizing conversation with the verified federal
+ * capacity taper. (Formerly two overlapping sections.)
+ */
+export function StorageAndIndependence() {
   const steps = [
     {
       time: "06:00 – 09:00",
@@ -81,13 +86,15 @@ export function Independence() {
     },
   ];
 
+  const tiers = estimatorAssumptions.batteryTiers;
+
   return (
-    <section className="section on-deep" aria-labelledby="independence-title">
+    <section className="section on-deep" aria-labelledby="storage-independence-title">
       <div className="container">
         <div className="section-head section-head--split">
           <div className="stack">
-            <p className="eyebrow">Independence, defined</p>
-            <h2 className="section-head__title" id="independence-title">
+            <p className="eyebrow">Storage &amp; independence</p>
+            <h2 className="section-head__title" id="storage-independence-title">
               Independence is not going off-grid. It is deciding when you buy power.
             </h2>
           </div>
@@ -122,6 +129,63 @@ export function Independence() {
                 <p>{step.body}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className="split split--media-first" style={{ marginTop: "var(--space-8)" }}>
+          <div className="split__media split__media--tall">
+            <Media
+              src={asset("/images/home-battery-wall.webp")}
+              alt="Modular home battery units mounted on a wall beneath an inverter in a garage"
+              focus="50% 35%"
+            />
+          </div>
+
+          <div className="split__body">
+            <h3 style={{ fontSize: "var(--step-2)" }}>
+              Storage is a sizing problem before it is a shopping problem.
+            </h3>
+            <p className="lede" style={{ color: "var(--text-on-deep-muted)" }}>
+              A battery earns its place by covering the hours when your household imports expensive
+              power. That depends on your surplus, your evening load and your tariff — not on the
+              largest capacity available.
+            </p>
+
+            <div className="tier-cards">
+              {tiers.map((tier) => (
+                <div className="tier" key={tier.label}>
+                  <div>
+                    <p className="tier__label">{tier.label}</p>
+                    <p className="tier__range">{tier.note}</p>
+                  </div>
+                  <p className="tier__pct">{Math.round(tier.factor * 100)}%</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="note-inline" style={{ color: "var(--text-on-deep-muted)" }}>
+              Federal battery support now tapers by installed capacity. Support applies from the
+              first 0–14 kWh at the full STC factor, then reduces. Verified against the Clean Energy
+              Regulator on 15 October 2026 —{" "}
+              <a
+                href={estimatorAssumptions.tierSource.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "var(--lime-400)", textDecoration: "underline" }}
+              >
+                read the official change notice
+              </a>
+              .
+            </p>
+
+            <div className="btn-row">
+              <Button to="/solar-rebates" variant="primary" withIcon>
+                Understand the incentives
+              </Button>
+              <Button to="/services" variant="ghost-deep">
+                Battery installation service
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -194,24 +258,24 @@ export function ProcessSection() {
 export function GalleryPreview() {
   const images = [
     {
-      src: asset("/images/sydney-commercial-rooftop-solar.jpg"),
-      alt: "Commercial rooftop solar array beside a heritage building in the Sydney CBD",
-      caption: "Commercial rooftop",
+      src: asset("/images/canberra-solar-suburb-hero.jpg"),
+      alt: "Angled aerial view over a Canberra suburb with solar arrays across tiled and metal roof planes",
+      caption: "Canberra roofs",
     },
     {
-      src: asset("/images/australian-commercial-solar-car-park-aerial.jpg"),
-      alt: "Aerial view of a solar shade structure over a commercial car park in Australia",
+      src: asset("/images/kawana-pacific-boulevard-array.jpg"),
+      alt: "Coastal street at Kawana Waters with solar panels on the roof of a mid-century home among newer houses",
+      caption: "Coastal street",
+    },
+    {
+      src: asset("/images/castle-plaza-commercial-solar-car-park.jpg"),
+      alt: "Large solar car park shade structure covered in photovoltaic panels at a shopping centre in Adelaide",
       caption: "Car-park shade",
     },
     {
-      src: asset("/images/solar-panels-roof-rows.webp"),
-      alt: "Solar panels across neighbouring terracotta-tiled residential roofs",
-      caption: "Tiled roofs",
-    },
-    {
-      src: asset("/images/solar-panel-macro.webp"),
-      alt: "Macro detail of the cell grid on a solar panel surface",
-      caption: "Equipment",
+      src: asset("/images/sydney-commercial-rooftop-solar.jpg"),
+      alt: "Commercial rooftop solar array beside a heritage building in the Sydney CBD",
+      caption: "Commercial rooftop",
     },
   ];
 
@@ -260,7 +324,7 @@ export function GalleryPreview() {
 /**
  * Full-width editorial photography section. All three photographs depict real
  * Australian solar installations with documented locations (Canberra ACT,
- * Corinda QLD and Kawana Waters QLD). See ASSET_SOURCES.md.
+ * West End Brisbane QLD and Kawana Waters QLD). See ASSET_SOURCES.md.
  */
 export function AustralianHomes() {
   return (
@@ -302,9 +366,9 @@ export function AustralianHomes() {
             }}
           >
             <Figure
-              src={asset("/images/brisbane-corinda-queenslander-solar.jpg")}
-              alt="Classic Queenslander home in Corinda, Brisbane with solar panels on its corrugated iron roof"
-              caption="A corrugated roof on a classic Queenslander, Corinda QLD. Photograph: Kgbo, Wikimedia Commons, CC BY-SA 4.0."
+              src={asset("/images/brisbane-west-end-tiled-roof-solar.jpg")}
+              alt="Brick Brisbane home with terracotta roof tiles and a solar array tucked between tropical palms"
+              caption="Daventry Street, West End, Brisbane QLD. Photograph: -wuppertaler, Wikimedia Commons, CC BY 4.0."
               aspect="4 / 3"
             />
             <Figure

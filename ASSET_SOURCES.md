@@ -16,17 +16,21 @@ section, estimator, contact, solutions gallery).
 
 | File (in `public/images/`) | Location (evidence) | Photographer | Licence | Commons file page | Used in |
 | --- | --- | --- | --- | --- | --- |
-| `kawana-buddina-solar.jpg` | Kawana Waters, Buddina QLD (file description: "In Kawana Waters, Sunshine Coast Region, Queensland, Australien") | -wuppertaler | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:AUS_Kawana_Waters,_Buddina,_Pacific_Boulevard_001.jpg | **Home hero**, article cover (system size) |
-| `canberra-solar-suburb-hero.jpg` | Canberra ACT (file description: "Residential suburban rooftops with photovoltaic solar panels in Canberra") | Benlisquare | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Suburban_rooftop_solar_power_generation_in_Canberra,_Australia.jpg | About, article cover (orientation), gallery |
-| `canberra-solar-street-grid.jpg` | Canberra ACT (same file series, part 2) | Benlisquare | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Suburban_rooftop_solar_power_generation_in_Canberra,_Australia_(part_2).jpg | Article cover (system design), residential solar service page, gallery |
+| `kawana-buddina-solar.jpg` | Kawana Waters, Buddina QLD (file description: "In Kawana Waters, Sunshine Coast Region, Queensland, Australien") | -wuppertaler | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:AUS_Kawana_Waters,_Buddina,_Pacific_Boulevard_001.jpg | Retired — former home hero (see retired table) |
+| `brisbane-corinda-queenslander-2021-solar.jpg` | Corinda QLD, 2021 (file description: "Houses in Corinda, Queensland, 2021" — white Queenslander with rooftop solar) | Kgbo | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Houses_in_Corinda,_Queensland,_2021,_01.jpg | **Home hero** (credit visible in the hero caption) |
+| `canberra-solar-suburb-hero.jpg` | Canberra ACT (file description: "Residential suburban rooftops with photovoltaic solar panels in Canberra") | Benlisquare | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Suburban_rooftop_solar_power_generation_in_Canberra,_Australia.jpg | About, article cover (orientation), solutions gallery (featured tier), home gallery preview |
+| `canberra-solar-street-grid.jpg` | Canberra ACT (same file series, part 2) | Benlisquare | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Suburban_rooftop_solar_power_generation_in_Canberra,_Australia_(part_2).jpg | Article cover (system design), residential solar service page, solutions gallery (featured lead) |
 | `canberra-solar-suburb-aerial.jpg` | Canberra ACT (same file series, part 3) | Benlisquare | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Suburban_rooftop_solar_power_generation_in_Canberra,_Australia_(part_3).jpg | Article cover (feed-in tariffs), estimator intro, gallery |
 | `canberra-solar-homes-aerial.jpg` | Canberra ACT (same file series, part 4) | Benlisquare | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Suburban_rooftop_solar_power_generation_in_Canberra,_Australia_(part_4).jpg | Home editorial section, article cover (payback), solar+battery service page, gallery |
 | `canberra-solar-rooftops-aerial.jpg` | Canberra ACT (same file series, part 5) | Benlisquare | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Suburban_rooftop_solar_power_generation_in_Canberra,_Australia_(part_5).jpg | Article cover (warranties), gallery |
-| `brisbane-corinda-queenslander-solar.jpg` | Corinda QLD (file description: "House with number 109 in Corinda, Queensland") | Kgbo | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:House_with_number_109_in_Corinda,_Queensland.jpg | Rebates page, article cover (incentives), home gallery preview |
-| `kawana-residential-solar.jpg` | Kawana Waters, Sunshine Coast QLD (file description: "In Kawana Waters, Sunshine Coast Region, Queensland, Australien") | -wuppertaler | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:AUS_Kawana_Waters,_Buddina,_Pacific_Boulevard_009.jpg | Home editorial section, About, Contact, article cover (maintenance), gallery |
-| `australian-battery-switchboard.jpg` | Australia (file description: "Residential electrical switchboard upgraded to integrate grid supply, rooftop solar inverter and battery storage system" — exact locality not stated) | DezzignProtect | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Residential_solar_battery_and_main_switchboard_integration_in_Australia_01.jpg | Solutions gallery (metering entry, credit in visible caption) |
-| `sydney-commercial-rooftop-solar.jpg` | Sydney CBD, Cumberland Street (file description: "Im Central Business District, Sydney, New South Wales, Australien") | -wuppertaler | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:AUS_Sydney,_Central_Business_District,_Cumberland_Street_002.jpg | Article cover (grid vs off-grid), home gallery preview, gallery |
-| `castle-plaza-commercial-solar-car-park.jpg` | Castle Plaza, Edwardstown SA (file description states the location and that the structure was built by PV Structures) | Flicker02 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Castle-Plaza-Print-Quality-4-scaled.jpg | Commercial solar service page, gallery |
+| `brisbane-corinda-queenslander-solar.jpg` | Corinda QLD (file description: "House with number 109 in Corinda, Queensland") | Kgbo | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:House_with_number_109_in_Corinda,_Queensland.jpg | Rebates page, solutions gallery (featured tier) |
+| `brisbane-west-end-tiled-roof-solar.jpg` | Daventry Street, West End, Brisbane QLD (file description: "In Brisbane, West End, Daventry Street") | -wuppertaler | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:AUS_Brisbane,_West_End,_Daventry_Street_003.jpg | Home editorial section, article cover (incentives) |
+| `kawana-pacific-boulevard-array.jpg` | Pacific Boulevard, Buddina, Kawana Waters QLD (file description: "In Kawana Waters, Sunshine Coast Region, Queensland, Australien") | -wuppertaler | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:AUS_Kawana_Waters,_Buddina,_Pacific_Boulevard_005.jpg | Solutions gallery (featured tier), home gallery preview |
+| `kawana-pacific-boulevard-metal-roof.jpg` | Pacific Boulevard, Buddina, Kawana Waters QLD (same file series) | -wuppertaler | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:AUS_Kawana_Waters,_Buddina,_Pacific_Boulevard_006.jpg | Article cover (system size), solutions gallery (featured tier) |
+| `kawana-residential-solar.jpg` | Kawana Waters, Sunshine Coast QLD (file description: "In Kawana Waters, Sunshine Coast Region, Queensland, Australien") | -wuppertaler | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:AUS_Kawana_Waters,_Buddina,_Pacific_Boulevard_009.jpg | Home editorial section, Contact, article cover (maintenance), solutions gallery (reference tier) |
+| `australian-battery-switchboard.jpg` | Australia (file description: "Residential electrical switchboard upgraded to integrate grid supply, rooftop solar inverter and battery storage system" — exact locality not stated) | DezzignProtect | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Residential_solar_battery_and_main_switchboard_integration_in_Australia_01.jpg | Solutions gallery (metering entry, credit in visible caption), battery-upgrades service page, article cover (battery capacity vs power) |
+| `sydney-commercial-rooftop-solar.jpg` | Sydney CBD, Cumberland Street (file description: "Im Central Business District, Sydney, New South Wales, Australien") | -wuppertaler | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:AUS_Sydney,_Central_Business_District,_Cumberland_Street_002.jpg | Article cover (grid vs off-grid), home gallery preview, solutions gallery (featured tier) |
+| `castle-plaza-commercial-solar-car-park.jpg` | Castle Plaza, Edwardstown SA (file description states the location and that the structure was built by PV Structures) | Flicker02 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Castle-Plaza-Print-Quality-4-scaled.jpg | Commercial solar service page, solutions gallery (featured tier), home gallery preview |
 | `australian-commercial-solar-car-park-aerial.jpg` | Somewhere in Australia (file description: "Solar shade structure over a commercial car park in Australia" — exact locality not stated) | Flicker02 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Old-Spot-Solar-Car-Park-Shade.jpg | Home gallery preview, gallery |
 | `social-card.jpg` | 1.91:1 crop of `canberra-solar-suburb-hero.jpg` | Benlisquare | CC BY-SA 4.0 | as above | Open Graph sharing image |
 
@@ -42,9 +46,13 @@ Notes on this collection:
   photographer/licence credits appear in visible captions on the homepage
   editorial section, estimator, contact page and solutions gallery.
 - The Canberra aerial series frames different streets, so the remaining aerial
-  placements read as distinct photographs; only four of the five now appear as
-  article covers after the system-size cover was switched to a street-level
-  home photograph.
+  placements read as distinct photographs; article covers no longer repeat the
+  same photograph across two articles (the incentives and battery-capacity
+  covers were moved to dedicated photographs in October 2026).
+- The 2026-10 photography pass added four location-verified photographs
+  (Corinda 2021 hero, West End tiled roof, Kawana street array and Kawana
+  metal roof) and replaced the hero; responsive WebP/JPEG variants for every
+  photo are generated by `node scripts/build-image-variants.mjs`.
 
 ## Photography — international collection (Pexels licence)
 
@@ -76,6 +84,7 @@ file:
 | --- | --- |
 | `rooftop-solar-home.webp` | Rooftop solar in **Belgium** — replaced wherever it appeared by verified Australian photography. |
 | `modern-home-1.webp` | Modern home, location unverified and no solar panels in frame — removed from the gallery in favour of the Kawana and Canberra photographs. |
+| `kawana-buddina-solar.jpg` | Former home hero. A clear photograph, but the framing included a cable crossing the roof and a busy lot line; replaced as hero by the Corinda 2021 Queenslander, and as the system-size article cover by `kawana-pacific-boulevard-metal-roof.jpg`. Kept on disk in case it suits a future placement. |
 
 ## Site artwork
 

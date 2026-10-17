@@ -5,6 +5,12 @@
  * installation styles — not a portfolio of completed customer installations.
  * If a verified project portfolio becomes available, replace the entries here
  * and update the page copy in `src/pages/Solutions.tsx`.
+ *
+ * Two tiers:
+ * - `featured`: premium location-verified Australian photography, shown large
+ *   at the top of the gallery with location and licence credits visible.
+ * - `reference`: the technical library — equipment, technique and process
+ *   shots presented at gallery scale.
  * ---------------------------------------------------------------------------
  */
 
@@ -18,6 +24,8 @@ export type GalleryCategory =
   | "Larger scale"
   | "Electrification";
 
+export type GalleryTier = "featured" | "reference";
+
 export type GalleryItem = {
   id: string;
   src: string;
@@ -27,6 +35,8 @@ export type GalleryItem = {
   category: GalleryCategory;
   /** Layout weight in the gallery grid. */
   size?: "wide" | "tall" | "std";
+  /** Showcase tier: featured images render large with location credits. */
+  tier: GalleryTier;
 };
 
 export const galleryCategories: GalleryCategory[] = [
@@ -38,16 +48,36 @@ export const galleryCategories: GalleryCategory[] = [
   "Electrification",
 ];
 
-export const galleryItems: GalleryItem[] = [
+export const featuredGalleryItems: GalleryItem[] = [
   {
     id: "rooftops",
     src: asset("/images/canberra-solar-street-grid.jpg"),
     alt: "Straight-down aerial view of a Canberra suburban street where most roofs carry photovoltaic solar arrays",
     title: "A street where solar is the norm",
     caption:
-      "Suburban Canberra, ACT. Australia leads the world in rooftop solar penetration per capita — and streets like this show what that looks like from above.",
+      "Suburban Canberra, ACT. Australia leads the world in rooftop solar penetration per capita — and streets like this show what that looks like from above. Photograph: Benlisquare, Wikimedia Commons, CC BY-SA 4.0.",
     category: "Rooftop solar",
-    size: "wide",
+    tier: "featured",
+  },
+  {
+    id: "corinda",
+    src: asset("/images/brisbane-corinda-queenslander-solar.jpg"),
+    alt: "Traditional Queenslander house in Corinda, Brisbane with solar panels mounted across its corrugated iron roof",
+    title: "Solar on a classic Queenslander",
+    caption:
+      "Corinda, Brisbane QLD. Older home styles take solar well — the mounting method changes for corrugated iron, but the design principles do not. Photograph: Kgbo, Wikimedia Commons, CC BY-SA 4.0.",
+    category: "Rooftop solar",
+    tier: "featured",
+  },
+  {
+    id: "kawana-street",
+    src: asset("/images/kawana-pacific-boulevard-array.jpg"),
+    alt: "Coastal street at Kawana Waters with solar panels on the roof of a mid-century home among newer houses",
+    title: "A coastal roofscape in mix and match",
+    caption:
+      "Buddina, Kawana Waters QLD. Post-war homes, duplexes and new builds share one street — each roof gets its own array decision. Photograph: -wuppertaler, Wikimedia Commons, CC BY 4.0.",
+    category: "Rooftop solar",
+    tier: "featured",
   },
   {
     id: "canberra-hero",
@@ -55,10 +85,43 @@ export const galleryItems: GalleryItem[] = [
     alt: "Angled aerial view over a Canberra suburb with solar arrays across tiled and metal roof planes",
     title: "Arrays following the roof planes",
     caption:
-      "Canberra, ACT. Layout follows the existing roof geometry — multiple planes, setbacks and hips, each treated on its own merits.",
+      "Canberra, ACT. Layout follows the existing roof geometry — multiple planes, setbacks and hips, each treated on its own merits. Photograph: Benlisquare, Wikimedia Commons, CC BY-SA 4.0.",
     category: "Rooftop solar",
-    size: "wide",
+    tier: "featured",
   },
+  {
+    id: "sydney-commercial",
+    src: asset("/images/sydney-commercial-rooftop-solar.jpg"),
+    alt: "Commercial rooftop solar array in inner Sydney with city high-rises behind it",
+    title: "Commercial solar, inner city",
+    caption:
+      "Cumberland Street, Sydney NSW. Commercial roofs with long daytime loads are where self-consumed solar does its best work. Photograph: -wuppertaler, Wikimedia Commons, CC BY 4.0.",
+    category: "Larger scale",
+    tier: "featured",
+  },
+  {
+    id: "kawana-metal-roof",
+    src: asset("/images/kawana-pacific-boulevard-metal-roof.jpg"),
+    alt: "White beachside house at Kawana Waters with solar panels on its low-pitch corrugated metal roof",
+    title: "Low-pitch metal, beachside air",
+    caption:
+      "Buddina, Kawana Waters QLD. Corrugated metal on a low pitch is common near the coast — mounting, drainage and corrosion resistance are the design questions here. Photograph: -wuppertaler, Wikimedia Commons, CC BY 4.0.",
+    category: "Rooftop solar",
+    tier: "featured",
+  },
+  {
+    id: "solar-car-park",
+    src: asset("/images/castle-plaza-commercial-solar-car-park.jpg"),
+    alt: "Large solar car park shade structure covered in photovoltaic panels at a shopping centre in Adelaide",
+    title: "Solar shade over a car park",
+    caption:
+      "Castle Plaza, Edwardstown SA. Car park canopies turn unused paved land into shaded parking and generation at the same time. Photograph: Flicker02, Wikimedia Commons, CC BY-SA 4.0.",
+    category: "Larger scale",
+    tier: "featured",
+  },
+];
+
+export const referenceGalleryItems: GalleryItem[] = [
   {
     id: "canberra-backyards",
     src: asset("/images/canberra-solar-homes-aerial.jpg"),
@@ -67,16 +130,7 @@ export const galleryItems: GalleryItem[] = [
     caption:
       "Canberra, ACT. Tile and metal roofs, small and large arrays, each sized to the household's consumption rather than the block's boundaries.",
     category: "Rooftop solar",
-    size: "wide",
-  },
-  {
-    id: "corinda",
-    src: asset("/images/brisbane-corinda-queenslander-solar.jpg"),
-    alt: "Traditional Queenslander house in Corinda, Brisbane with solar panels mounted low across its corrugated iron roof",
-    title: "Solar on a classic Queenslander",
-    caption:
-      "Corinda, Brisbane QLD. Older home styles take solar well — the mounting method changes for corrugated iron, but the design principles do not.",
-    category: "Rooftop solar",
+    tier: "reference",
   },
   {
     id: "kawana",
@@ -86,26 +140,7 @@ export const galleryItems: GalleryItem[] = [
     caption:
       "Kawana Waters, QLD. Second-storey roofs often get the cleanest sun — and the wind loads to go with it.",
     category: "Rooftop solar",
-  },
-  {
-    id: "sydney-commercial",
-    src: asset("/images/sydney-commercial-rooftop-solar.jpg"),
-    alt: "Commercial rooftop solar array in inner Sydney with city high-rises behind it",
-    title: "Commercial solar, inner city",
-    caption:
-      "Inner Sydney, NSW. Commercial roofs with long daytime loads are where self-consumed solar does its best work.",
-    category: "Larger scale",
-    size: "wide",
-  },
-  {
-    id: "solar-car-park",
-    src: asset("/images/castle-plaza-commercial-solar-car-park.jpg"),
-    alt: "Large solar car park shade structure covered in photovoltaic panels at a shopping centre in Adelaide",
-    title: "Solar shade over a car park",
-    caption:
-      "Castle Plaza, Edwardstown SA. Car park canopies turn unused paved land into shaded parking and generation at the same time.",
-    category: "Larger scale",
-    size: "wide",
+    tier: "reference",
   },
   {
     id: "solar-car-park-aerial",
@@ -115,6 +150,7 @@ export const galleryItems: GalleryItem[] = [
     caption:
       "A commercial solar shade structure in Australia — the same modules, tilt and spacing logic as a ground-mount array, raised one storey.",
     category: "Larger scale",
+    tier: "reference",
   },
   {
     id: "battery-wall",
@@ -125,6 +161,7 @@ export const galleryItems: GalleryItem[] = [
       "Stacked battery modules with the inverter above — a tidy layout that keeps cable runs short and clearances compliant.",
     category: "Battery storage",
     size: "tall",
+    tier: "reference",
   },
   {
     id: "panel-detail",
@@ -134,6 +171,7 @@ export const galleryItems: GalleryItem[] = [
     caption:
       "Cell spacing, busbars and glass quality vary between modules — a reason specification matters more than panel count alone.",
     category: "Rooftop solar",
+    tier: "reference",
   },
   {
     id: "install-crew",
@@ -144,6 +182,7 @@ export const galleryItems: GalleryItem[] = [
       "Mounting hardware, cable management and torque settings on the roof determine long-term reliability far more than they are talked about.",
     category: "Installation",
     size: "wide",
+    tier: "reference",
   },
   {
     id: "roof-array",
@@ -153,6 +192,7 @@ export const galleryItems: GalleryItem[] = [
     caption:
       "Where roof area is generous, a larger array can cover daytime loads and still leave surplus for storage or export.",
     category: "Rooftop solar",
+    tier: "reference",
   },
   {
     id: "electrician",
@@ -163,6 +203,7 @@ export const galleryItems: GalleryItem[] = [
       "Switchboard capacity, circuit protection and correct isolation are part of every installation — not optional extras.",
     category: "Installation",
     size: "tall",
+    tier: "reference",
   },
   {
     id: "aerial-farm",
@@ -173,6 +214,7 @@ export const galleryItems: GalleryItem[] = [
       "Large-scale solar shapes the wholesale market that sits behind your feed-in tariff — the reason export rates move.",
     category: "Larger scale",
     size: "wide",
+    tier: "reference",
   },
   {
     id: "ground-mount",
@@ -181,7 +223,8 @@ export const galleryItems: GalleryItem[] = [
     title: "Ground-mounted arrays",
     caption:
       "Where roof space is unsuitable, ground mounting can achieve better tilt and orientation for the same module count.",
-    category: "Rooftop solar",
+    category: "Larger scale",
+    tier: "reference",
   },
   {
     id: "metering",
@@ -192,6 +235,7 @@ export const galleryItems: GalleryItem[] = [
       "Residential switchboard integrating grid supply, a rooftop solar inverter and battery storage — the electrical work behind every storage system, and one of the parts hardest to retrofit later. Photograph: DezzignProtect, Wikimedia Commons, CC BY-SA 4.0.",
     category: "Metering & monitoring",
     size: "tall",
+    tier: "reference",
   },
   {
     id: "ev-charging",
@@ -202,6 +246,7 @@ export const galleryItems: GalleryItem[] = [
       "Charging during the middle of the day turns generation into kilometres rather than low-value exports.",
     category: "Electrification",
     size: "wide",
+    tier: "reference",
   },
   {
     id: "canberra-rooftops",
@@ -211,6 +256,7 @@ export const galleryItems: GalleryItem[] = [
     caption:
       "Canberra, ACT. Four similar houses, four different layouts — each shaped by orientation, shade and consumption rather than a template.",
     category: "Rooftop solar",
+    tier: "reference",
   },
   {
     id: "daylight",
@@ -220,6 +266,7 @@ export const galleryItems: GalleryItem[] = [
     caption:
       "The grid of light on a wall is a reminder of the physics: usable energy arrives in daylight hours, so timing is everything.",
     category: "Metering & monitoring",
+    tier: "reference",
   },
   {
     id: "installer-at-work",
@@ -229,5 +276,9 @@ export const galleryItems: GalleryItem[] = [
     caption:
       "Two people, gloves, glasses and a plan — installing panels is a team task with a specific sequence.",
     category: "Installation",
+    tier: "reference",
   },
 ];
+
+/** All items, featured first — the order visitors see with no filter applied. */
+export const galleryItems: GalleryItem[] = [...featuredGalleryItems, ...referenceGalleryItems];

@@ -277,8 +277,8 @@ export const articles: Article[] = [
     readingMinutes: 9,
     published: "2026-09-20",
     updated: "2026-10-15",
-    heroImage: asset("/images/electricity-meter.webp"),
-    heroAlt: "A row of electricity meters mounted on a wall",
+    heroImage: asset("/images/brisbane-west-end-tiled-roof-solar.jpg"),
+    heroAlt: "Brick Brisbane home with a solar array on its terracotta tiled roof between tropical palms",
     blocks: [
       {
         type: "p",
@@ -607,8 +607,8 @@ export const articles: Article[] = [
     readingMinutes: 8,
     published: "2026-06-03",
     updated: "2026-10-15",
-    heroImage: asset("/images/kawana-buddina-solar.jpg"),
-    heroAlt: "Two-storey Australian home at Kawana Waters, Queensland, with a differently sized solar array on its roof",
+    heroImage: asset("/images/kawana-pacific-boulevard-metal-roof.jpg"),
+    heroAlt: "White beachside house at Kawana Waters with a solar array on its low-pitch corrugated metal roof",
     blocks: [
       {
         type: "p",
@@ -1876,8 +1876,8 @@ export const articles: Article[] = [
     readingMinutes: 6,
     published: "2026-08-08",
     updated: "2026-10-15",
-    heroImage: asset("/images/home-battery-wall.webp"),
-    heroAlt: "Wall-mounted battery modules and inverter — equipment rated for both energy capacity and output power",
+    heroImage: asset("/images/australian-battery-switchboard.jpg"),
+    heroAlt: "Wall-mounted battery modules and switchboard — equipment rated for both energy capacity and output power",
     blocks: [
       {
         type: "p",

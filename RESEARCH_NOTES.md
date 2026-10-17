@@ -3,8 +3,11 @@
 This document records what was researched for the site's factual content, where
 it came from, and what must be re-checked before launch. **All incentive
 information was verified against the official sources below on 15 October
-2026.** Estimates built on those rules are labelled indicative everywhere they
-appear in the interface.
+2026.** The federal battery capacity taper was re-checked against the Clean
+Energy Regulator change notice on 17 October 2026 (0–14 kWh at 100%, 14–28 kWh
+at 60%, 28–50 kWh at 15% — unchanged and matching
+`estimatorAssumptions.batteryTiers` exactly). Estimates built on those rules
+are labelled indicative everywhere they appear in the interface.
 
 ## Method
 

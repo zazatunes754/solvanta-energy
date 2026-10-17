@@ -2,30 +2,25 @@ import { CtaBand, HomeHero } from "../components/sections/HomeHero";
 import {
   AustralianHomes,
   GalleryPreview,
-  Independence,
   ProcessSection,
   Proposition,
+  StorageAndIndependence,
 } from "../components/sections/HomeValue";
-import {
-  BatterySection,
-  IncentivesSection,
-  ServicesPreview,
-} from "../components/sections/HomeOffer";
-import {
-  ComponentGuide,
-  CostAndSavings,
-  DecisionPaths,
-  HowSolarWorks,
-  ProsAndCons,
-} from "../components/sections/HomeLearn";
-import {
-  EstimatorPreview,
-  FaqPreview,
-  KnowledgePreview,
-} from "../components/sections/HomeEngage";
+import { IncentivesSection, ServicesPreview } from "../components/sections/HomeOffer";
+import { CostAndSavings, DecisionPaths, HowSolarWorks } from "../components/sections/HomeLearn";
+import { EstimatorPreview, KnowledgePreview } from "../components/sections/HomeEngage";
 import { organisationStructuredData, useSeo } from "../hooks/useSeo";
 import { site } from "../config/site";
 
+/**
+ * Homepage structure — 14 sections, each with a distinct job:
+ *   hero → proposition → services → estimator → homes → how it works
+ *   → storage → process → incentives → honest numbers → gallery
+ *   → knowledge & FAQ → decision paths → closing CTA.
+ * Formerly overlapping sections (components, battery, independence, FAQ,
+ * pros-and-cons) are merged into their parent sections to keep the page
+ * rhythm tight without dropping any of the content.
+ */
 export default function Home() {
   useSeo({
     title: `${site.brand.name} — ${site.brand.tagline}`,
@@ -43,16 +38,12 @@ export default function Home() {
       <EstimatorPreview />
       <AustralianHomes />
       <HowSolarWorks />
-      <ComponentGuide />
-      <BatterySection />
-      <Independence />
+      <StorageAndIndependence />
       <ProcessSection />
       <IncentivesSection />
       <CostAndSavings />
-      <ProsAndCons />
       <GalleryPreview />
       <KnowledgePreview />
-      <FaqPreview />
       <DecisionPaths />
       <CtaBand />
     </>

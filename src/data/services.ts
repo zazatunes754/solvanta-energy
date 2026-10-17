@@ -665,8 +665,8 @@ export const services: Service[] = [
       "Homes that have added an EV, pool or heat pump since installing",
       "Systems with equipment nearing the end of warranty",
     ],
-    image: asset("/images/electrician-work.webp"),
-    imageAlt: "Technician working on wiring and terminals inside an open electrical control panel",
+    image: asset("/images/australian-battery-switchboard.jpg"),
+    imageAlt: "Residential switchboard integrated with a solar inverter and home battery storage",
     icon: "refresh",
     guide: [
       {

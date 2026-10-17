@@ -57,7 +57,15 @@ const destinations = [
   },
 ];
 
+/**
+ * How solar works, end to end — with the component guide folded in as a
+ * tabbed panel, so the front page explains both the system and its parts in
+ * one place.
+ */
 export function HowSolarWorks() {
+  const [active, setActive] = useState(components[0].id);
+  const current = components.find((item) => item.id === active) ?? components[0];
+
   return (
     <section className="section on-deep" aria-labelledby="how-solar-works-title">
       <div className="container">
@@ -101,6 +109,64 @@ export function HowSolarWorks() {
               <p>{item.body}</p>
             </div>
           ))}
+        </div>
+
+        <div
+          className="panel"
+          style={{
+            marginTop: "var(--space-8)",
+            display: "grid",
+            gap: "var(--space-3)",
+            maxWidth: "84ch",
+          }}
+        >
+          <p className="eyebrow">What you're actually buying</p>
+          <h3 style={{ fontSize: "var(--step-2)" }}>Four components, four sets of decisions.</h3>
+          <p className="lede">
+            A solar system is panels, an inverter, optional storage and a monitoring layer —
+            and each one changes the outcome differently. Pick a component to see what
+            matters and where the guides go deeper.
+          </p>
+          <div className="tabs" role="group" aria-label="System components" style={{ marginTop: "var(--space-2)" }}>
+            {components.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                className="tab"
+                aria-pressed={active === item.id}
+                onClick={() => setActive(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gap: "var(--space-3)",
+              marginTop: "var(--space-3)",
+            }}
+          >
+            <p className="eyebrow" style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
+              <ServiceIcon name={current.icon} size={16} />
+              {current.label}
+            </p>
+            <h3>{current.title}</h3>
+            <p className="lede">{current.body}</p>
+            <ul className="tick-list">
+              {current.points.map((point) => (
+                <li key={point}>
+                  <ArrowRight aria-hidden="true" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <Link className="arrow-link" to={current.to}>
+              {current.linkLabel}
+              <ArrowRight className="btn__icon" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -170,76 +236,6 @@ const components = [
   },
 ];
 
-export function ComponentGuide() {
-  const [active, setActive] = useState(components[0].id);
-  const current = components.find((item) => item.id === active) ?? components[0];
-
-  return (
-    <section className="section" aria-labelledby="component-guide-title">
-      <div className="container">
-        <SectionHeading
-          eyebrow="What you're actually buying"
-          title={
-            <span id="component-guide-title">Four components, four sets of decisions.</span>
-          }
-          aside={
-            <div className="stack">
-              <p className="lede">
-                A solar system is panels, an inverter, optional storage and a monitoring layer —
-                and each one changes the outcome differently. Pick a component to see what
-                matters and where the guides go deeper.
-              </p>
-            </div>
-          }
-        />
-
-        <div className="tabs" role="group" aria-label="System components" style={{ marginTop: "var(--space-5)" }}>
-          {components.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              className="tab"
-              aria-pressed={active === item.id}
-              onClick={() => setActive(item.id)}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-
-        <div
-          className="panel"
-          style={{
-            marginTop: "var(--space-5)",
-            display: "grid",
-            gap: "var(--space-3)",
-            maxWidth: "84ch",
-          }}
-        >
-          <p className="eyebrow" style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
-            <ServiceIcon name={current.icon} size={16} />
-            {current.label}
-          </p>
-          <h3>{current.title}</h3>
-          <p className="lede">{current.body}</p>
-          <ul className="tick-list">
-            {current.points.map((point) => (
-              <li key={point}>
-                <ArrowRight aria-hidden="true" />
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-          <Link className="arrow-link" to={current.to}>
-            {current.linkLabel}
-            <ArrowRight className="btn__icon" aria-hidden="true" />
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ---------------------------------------------------------------------------
  * Costs and savings — what moves the price, what moves the savings
  * ------------------------------------------------------------------------- */
@@ -249,14 +245,14 @@ export function CostAndSavings() {
     <section className="section" aria-labelledby="cost-savings-title">
       <div className="container">
         <SectionHeading
-          eyebrow="Costs and savings"
-          title={<span id="cost-savings-title">What drives the price — and what drives the savings.</span>}
+          eyebrow="Costs, savings and trade-offs"
+          title={<span id="cost-savings-title">The honest numbers — price, savings and limits.</span>}
           aside={
             <div className="stack">
               <p className="lede">
                 Two different questions get blurred together in solar marketing. The price of
                 installing is one calculation; the savings afterwards are another, shaped by
-                tariffs, behaviour and weather. Both deserve honest numbers.
+                tariffs, behaviour and weather. Both deserve honest numbers — as do the limits.
               </p>
               <Link className="arrow-link" to="/knowledge-hub/solar-payback-explained">
                 How payback really works
@@ -316,37 +312,11 @@ export function CostAndSavings() {
             the savings projection as the planning tool it is — with its assumptions shown.
           </p>
         </Callout>
-      </div>
-    </section>
-  );
-}
 
-/* ---------------------------------------------------------------------------
- * Advantages and limitations
- * ------------------------------------------------------------------------- */
-
-export function ProsAndCons() {
-  return (
-    <section className="section on-deep" aria-labelledby="pros-cons-title">
-      <div className="container">
-        <SectionHeading
-          eyebrow="A balanced view"
-          title={<span id="pros-cons-title">Where solar excels, and where it has limits.</span>}
-          aside={
-            <div className="stack">
-              <p className="lede">
-                Solar is a strong investment in many households and a marginal one in some. Both
-                halves of that sentence deserve equal billing — starting with the honest
-                limitations.
-              </p>
-            </div>
-          }
-        />
-
-        <div className="grid-2" style={{ marginTop: "var(--space-6)", gap: "var(--space-6)" }}>
+        <div className="grid-2" style={{ marginTop: "var(--space-8)", gap: "var(--space-6)" }}>
           <div>
             <p className="mono" style={{ marginBottom: "var(--space-3)" }}>
-              Where it excels
+              Where solar excels
             </p>
             <ul className="tick-list">
               {[

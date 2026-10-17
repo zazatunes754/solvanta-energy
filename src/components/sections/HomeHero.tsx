@@ -49,13 +49,14 @@ export function HomeHero() {
 
             <div className="hero__media">
               <Media
-                src={asset("/images/kawana-buddina-solar.jpg")}
-                alt="Modern two-storey Australian home at Kawana Waters, Queensland, with a large rooftop solar array under a blue sky"
+                src={asset("/images/brisbane-corinda-queenslander-2021-solar.jpg")}
+                alt="Classic white Queenslander home in Corinda, Brisbane, with a large rooftop solar array across its corrugated metal roof under a blue sky"
                 priority
-                focus="52% 38%"
+                sizes="(min-width: 1000px) 45vw, calc(100vw - 2.2rem)"
+                focus="52% 45%"
               />
               <p className="hero__credit">
-                Kawana Waters, QLD · Photo: -wuppertaler, Wikimedia Commons, CC BY 4.0
+                Corinda, Brisbane QLD · Photo: Kgbo, Wikimedia Commons, CC BY-SA 4.0
               </p>
               <dl className="hero__readout">
                 <div>

@@ -30,7 +30,7 @@ Other scripts:
 | Script | What it does |
 | --- | --- |
 | `npm run dev` | Vite dev server with hot reload |
-| `npm run build` | Type-checks (`tsc --noEmit`) then builds to `dist/` |
+| `npm run build` | Type-checks (`tsc --noEmit`), builds to `dist/`, then prerenders every route to real HTML (`node scripts/prerender.mjs`) |
 | `npm run preview` | Serves the production build locally (http://localhost:4173) |
 | `npm run typecheck` | Type-check only |
 | `node scripts/qa.mjs [--smoke]` | Real-browser QA sweep (Playwright + system Chrome): overflow, broken images, console/network errors and interaction tests at mobile/tablet/desktop sizes against `npm run preview` |
@@ -41,12 +41,12 @@ Other scripts:
 
 | Route | Contents |
 | --- | --- |
-| `/` | Long-form home page: value proposition, nine services, a working estimator teaser, Australian editorial photography, how solar works, component guide, battery and incentives, process, costs and savings, pros and cons, gallery and knowledge previews, featured FAQs and decision paths |
+| `/` | Long-form home page: value proposition, nine services, a working estimator teaser, Australian editorial photography, how solar works (with the component guide), storage and independence, process, incentives, the honest numbers (costs, savings and limits), gallery preview, knowledge hub and featured FAQs, decision paths and a closing CTA |
 | `/services` | All nine service lines with inclusions and suitability notes |
 | `/services/:slug` | Full per-service guide: planning, sizing, installation stages, warranties, honest limitations and service-specific FAQs |
 | `/solar-rebates` | Federal and state incentive programs, each dated, status-labelled and linked to its official source — plus how to verify eligibility yourself and what could change next |
 | `/solar-estimator` | Interactive savings estimator: bill size, state, battery size, roof factor, existing solar — with every assumption disclosed and overridable, a three-scenario comparison and "how the model thinks" explainers |
-| `/solutions` | Reference gallery (explicitly labelled as reference imagery, not a portfolio) with keyboard-accessible lightbox and a component glossary |
+| `/solutions` | Reference gallery (explicitly labelled as reference imagery, not a portfolio): a featured tier of location-verified Australian photographs with visible credits, a filterable technical reference tier, a keyboard-accessible lightbox and a component glossary |
 | `/knowledge-hub` | Article index; twenty full articles with per-article takeaways, related links and source lists |
 | `/knowledge-hub/:slug` | Article pages |
 | `/about` | How the business works, how it estimates and prices, its commitments and its honesty policy |
@@ -149,7 +149,9 @@ been independently audited — see the checklist at the bottom of this file.
 ## SEO and metadata
 
 - Per-route titles, descriptions, canonical URLs and Open Graph tags via
-  `src/hooks/useSeo.ts`.
+  `src/hooks/useSeo.ts` — and, since the prerender step, baked into the
+  static HTML of every route at build time (crawlers and social scrapers read
+  them without executing JavaScript).
 - Organisation structured data (minimal and truthful); FAQ page emits FAQPage
   structured data.
 - `public/robots.txt` and `public/sitemap.xml` are included. Both now point at
@@ -159,16 +161,32 @@ been independently audited — see the checklist at the bottom of this file.
 
 ## Deployment
 
-The output in `dist/` is a static SPA. Because routes are client-side, the host
-must fall back to `index.html` for unknown paths:
+The output in `dist/` is a static site with **prerendered HTML for every
+route** plus a SPA fallback for anything unexpected:
 
-- **GitHub Pages**: the build ships a copy of the app shell as `dist/404.html`,
-  which GitHub Pages serves for any unmatched path — so direct visits and
-  refreshes on nested routes boot the app and React Router renders the correct
-  page (this is what makes `…/solvanta-energy/contact` work as a direct link).
+- **Every known route ships as a real `index.html`** (e.g.
+  `dist/services/residential-solar/index.html`). The host serves it with HTTP
+  200, and the page's own title, description, canonical URL and Open Graph
+  tags are in the initial markup — deep links work for users, crawlers and
+  social scrapers without executing JavaScript. Hosts typically serve
+  `…/solvanta-energy/contact` via a redirect to `…/solvanta-energy/contact/`
+  (GitHub Pages does this), which then answers 200.
+- **GitHub Pages fallback**: `dist/404.html` is a prerendered not-found page
+  that still boots the SPA. GitHub Pages serves it for any unmatched path, so
+  React Router renders the branded 404 — and routes added later without a
+  rebuild still work client-side.
 - **Netlify**: `public/_redirects` is already included and copied to `dist/`.
-- **Vercel**: add a rewrite of `/(.*)` to `/index.html`.
-- **Apache/Nginx/other**: route unknown paths to `/index.html` (200).
+- **Vercel**: static routes resolve directly; add a rewrite of `/(.*)` to
+  `/index.html` as a last-resort fallback.
+- **Apache/Nginx/other**: serve the prerendered files; route unknown paths to
+  `/index.html` (200).
+
+The prerenderer (`scripts/prerender.mjs`) renders through
+`src/entry-prerender.tsx` with `renderToStaticMarkup`; the route table in
+`src/routes.tsx` is shared with the live app so the two cannot drift apart.
+One honest limitation: pages are prerendered in their default interactive
+state (estimator defaults, accordions collapsed) — exactly what the live app
+shows on first paint; the client then takes over as normal.
 
 Suggested flow:
 
